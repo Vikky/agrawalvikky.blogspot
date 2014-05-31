@@ -1,6 +1,8 @@
+import java.util.Stack;
+
 /**
  * @author vikky.agrawal
- *
+ * 
  */
 
 public class BST {
@@ -29,9 +31,10 @@ public class BST {
 		System.out.println("Traversing tree in  post-order");
 		postOrder(root);
 
-		System.out.println("Find whether sum=11 exists in tree : "
+		System.out.println("Find whether sum=12 exists in tree : "
 				+ findSum(root, 12));
 
+	
 	}
 
 	public void insert(TreeNode root, int val) {
@@ -79,12 +82,12 @@ public class BST {
 	}
 
 	/*
-	 * Right -left - root
+	 * left -right - root
 	 */
 	public void postOrder(TreeNode root) {
-		if (root != null) {
-			postOrder(root.getRight());
+		if (root != null) {			
 			postOrder(root.getLeft());
+			postOrder(root.getRight());
 			System.out.println(root.getData());
 
 		}
@@ -119,6 +122,28 @@ public class BST {
 			}
 		}
 		return false;
+	}
+
+	public void iterativeInOrder(TreeNode root) {
+		if (root == null) {
+			return;
+		}
+
+		Stack<TreeNode> stack = new Stack<TreeNode>();
+		TreeNode currentNode = root;
+		while (currentNode != null) {
+			if (currentNode.getLeft() != null) {
+				stack.push(currentNode);
+				currentNode = currentNode.getLeft();
+			} else {
+				System.out.println(currentNode.getData());
+				if (!stack.isEmpty() && currentNode.getRight()==null) {
+					currentNode = stack.pop();
+					System.out.println(currentNode.getData());
+				}
+				currentNode = currentNode.getRight();
+			}
+		}
 	}
 
 	/*
