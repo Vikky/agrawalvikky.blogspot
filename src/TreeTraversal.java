@@ -1,7 +1,9 @@
+import java.util.Queue;
 import java.util.Stack;
 
 /**
  * @author Vikky.Agrawal
+ * Implementation of various tree traversals.
  * 
  */
 public class TreeTraversal {
@@ -19,34 +21,42 @@ public class TreeTraversal {
 
 	public void traverse() {
 		System.out.println("Building tree with root value " + root.getData());
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 7; i++)
 			this.insert(root, (int) (Math.random() * 100));
 
-		/*
-		 * System.out.println("Building tree with root value " +
-		 * root.getData()); insert(root, 1); insert(root, 8); insert(root, 6);
-		 * insert(root, 3); insert(root, 9);
+		
+		/* System.out.println("Building tree with root value " +root.getData()); 
+		 insert(root, 1);
+		 insert(root, 8); 
+		 insert(root, 6);
+		 insert(root, 3); 
+		 insert(root, 9);
 		 */
 
 		/*
-		 * System.out.println("recursive in-order traversal: ");
-		 * this.inorder(root);
-		 * 
-		 * System.out.println("Iterative in order traversal: ");
-		 * this.iterativeInOrder(root);
-		 * 
-		 * System.out.println("Recursive post order traversal");
-		 * this.postOrder(root);
-		 * System.out.println("Iterative post order traversal: ");
-		 * this.iterativePostOrder(root);
+		 System.out.println("recursive in-order traversal: ");
+		 this.inorder(root);
+		  
+		  System.out.println("Iterative in order traversal: ");
+		  this.iterativeInOrder(root);
+		  
+		  System.out.println("Recursive post order traversal");
+		  this.postOrder(root);
+		  System.out.println("Iterative post order traversal: ");
+		  this.iterativePostOrder(root);
 		 */
 
-		System.out.println("Recursive pre order traversal");
+		/*System.out.println("Recursive pre order traversal");
 		this.preOrder(root);
 
 		System.out.println("Iterative pre order traversal: ");
-		this.iterativePreOrder(root);
-
+		this.iterativePreOrder(root);*/
+		
+		 System.out.println("BFS traversal : ");
+		 this.BFS(root);
+		 
+		 System.out.println("\nDFS traversal :");
+		 this.DFS(root);
 	}
 
 	// BST insertion
@@ -264,4 +274,61 @@ public class TreeTraversal {
 		}
 	}
 
+	
+	/*
+	 * Breadth first search tree traversal
+	 * V= no of vertices, e=no of edges
+	 * O(v+e)
+	 * if e=v^2 then complexity will be O(v^2) 
+	 */
+	public void BFS(TreeNode root){
+		if(root==null){
+			return;
+		}
+		
+		Queue<TreeNode> queue=new java.util.LinkedList<TreeNode>();
+		queue.add(root);
+		System.out.print(root.getData()+" , ");
+		while (!queue.isEmpty()) {
+
+			TreeNode node = queue.poll();
+			if (node.getLeft() != null) {
+				System.out.print(node.getLeft().getData() + " , ");
+				queue.add(node.getLeft());
+			}
+			if (node.getRight() != null) {
+				System.out.print(node.getRight().getData() + " , ");
+				queue.add(node.getRight());
+			}
+		}
+	}
+	
+	
+	/*
+	 * Depth first search tree traversal(DFS)
+	 * V= no of vertices, e=no of edges
+	 * O(v+e)
+	 * if e=v^2 then complexity will be O(v^2) 
+	 */
+	
+	public void DFS(TreeNode root){
+		if(root == null){
+			return;
+		}
+		
+		Stack<TreeNode> stack=new Stack<TreeNode>();
+		stack.add(root);		
+		
+		while(!stack.isEmpty()){
+			TreeNode node=stack.pop();
+			System.out.print(node.getData()+" , ");
+			if(node.getRight()!=null){
+				stack.push(node.getRight());
+			}
+			if(node.getLeft()!=null){
+				stack.push(node.getLeft());
+			}
+		}
+	}
+	
 }
