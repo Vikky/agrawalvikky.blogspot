@@ -7,6 +7,8 @@ import java.lang.reflect.Constructor;
 
 public class Singleton {
 
+	private static Singleton single_instance;
+	
 	private Singleton(){
 		//preventing reflection
 		if(single_instance!=null){
@@ -16,12 +18,11 @@ public class Singleton {
 		
 	}
 	
-	private static Singleton single_instance;
-	
 	public static Singleton getSingleton(){
 		
+		//double lock mechanism		
 		if(single_instance == null){
-			//1st thread is executing here while second thread checked above condition hence both threads are here.
+			//if 1st thread is executing here then second thread checked above condition hence both threads may exist here.
 			synchronized(Singleton.class){
 				//prevent multiple threads from creating 2 instances.(2 phase lock)
 				if(single_instance == null)
@@ -108,6 +109,20 @@ enum SingletonEnum{
 }
 
 
+//Using early instantiation -- static
 
+class SingletonStatic{
+	private static SingletonStatic instance = new SingletonStatic();
+
+	private SingletonStatic()
+	{
+		System.out.println("Singleton(): Initializing Instance");
+	}
+
+	public static SingletonStatic getInstance()
+	{    
+		return instance;
+	}
+}
 
 

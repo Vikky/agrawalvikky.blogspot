@@ -1,7 +1,7 @@
 
 /**
  * @author vikky.agrawal
- *
+ * DS for BST and BT
  */
 public class TreeNode {
     

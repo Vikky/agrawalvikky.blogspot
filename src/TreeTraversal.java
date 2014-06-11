@@ -276,7 +276,7 @@ public class TreeTraversal {
 
 	
 	/*
-	 * Breadth first search tree traversal
+	 * Breadth first search tree traversal -- implementation for BST/BT
 	 * V= no of vertices, e=no of edges
 	 * O(v+e)
 	 * if e=v^2 then complexity will be O(v^2) 
@@ -305,7 +305,7 @@ public class TreeTraversal {
 	
 	
 	/*
-	 * Depth first search tree traversal(DFS)
+	 * Depth first search tree traversal(DFS) -- implementation for BST/BT
 	 * V= no of vertices, e=no of edges
 	 * O(v+e)
 	 * if e=v^2 then complexity will be O(v^2) 
