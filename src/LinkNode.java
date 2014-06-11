@@ -1,4 +1,3 @@
-
 /**
  * @author Vikky.Agrawal
  * DS to use for Link List
@@ -6,11 +5,12 @@
 public class LinkNode {
 
 	 private int data;
-	 private LinkNode link;
-	 
+	 private LinkNode link; 
 	 
 	    
-	    LinkNode(){}
+	    LinkNode(){
+	    	    	
+	    }
 	    
 	    LinkNode(int data){
 	    	//mergedList=new LinkNode();
@@ -33,7 +33,5 @@ public class LinkNode {
 	    public void setLink(LinkNode link){
 	        this.link=link;
 	    }  
-	    
-	
-	
+	    	
 }

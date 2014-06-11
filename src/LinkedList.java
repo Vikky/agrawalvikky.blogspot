@@ -58,6 +58,20 @@ public class LinkedList {
 		add(duplicateList, 8);
 
 		removeDuplicates(duplicateList);
+		
+		
+		LinkNode swapList=new LinkNode(1);
+		for(int i=2; i<6; i++){
+			add(swapList,i);
+		}
+		
+		//this.swap(swapList);
+		System.out.println("before recurise reverse :");
+		print(swapList);
+		System.out.println("After recurise reverse :");
+		
+		print(recursiveReverse(swapList));
+		
 
 	}
 
@@ -119,11 +133,55 @@ public class LinkedList {
 			ptr3 = ptr2;
 
 		}
-		ptr1.setLink(ptr2);
+		ptr1.setLink(ptr2); //setting link for the last node;
 
 		System.out.println("Reversed List :");
 		this.print(ptr1);
 	}
+	
+	/*
+	 * RecursiveReverse() What is the reverse of null (the empty list)? null.
+	 * What is the reverse of a one element list? the element. What is the
+	 * reverse of an n element list? the reverse of the second element on
+	 * followed by the first element.
+	 */
+
+	public LinkNode recursiveReverse(LinkNode root) {
+
+		// base case
+
+		if (root == null || root.getLink() == null) {
+			return root;
+		}
+
+		LinkNode temp = recursiveReverse(root.getLink());
+
+		// temp contains last element when recursion done
+		// take 2 nodes and dry-run
+
+		root.getLink().setLink(root);
+		root.setLink(null);
+		return temp;
+
+	}
+	
+	/*
+	 *  Print reverse of the link list 
+	 *  reccursively
+	 */
+	
+	public void printReverseRecursive(LinkNode root){
+
+		if(root.getLink()!=null){
+			printReverseRecursive(root.getLink());
+			System.out.println(root.getData());
+		}else{
+			System.out.println(root.getData());
+		}
+	}
+	
+	
+	
 
 	public void printNthFromLast(LinkNode root, int n) {
 
@@ -323,6 +381,63 @@ public class LinkedList {
 		print(node);
 	}
 
+	
+	/*
+	 * Given a singly linked list, swap every two nodes
+	 * e.g. 1->2->3->4->5->6 should become 2->1->4->3->6->5
+	 */
+	
+	public void swap(LinkNode root){
+		
+		if(root == null){
+			return;
+		}
+		
+		System.out.println("before swap : ");
+		print(root);
+		
+		
+		LinkNode temp=root;
+		while(temp!=null && temp.getLink()!=null){
+			int data=temp.getData();
+			temp.setData(temp.getLink().getData());
+			temp.getLink().setData(data);
+			temp=temp.getLink().getLink();
+		}
+		System.out.println("After swap");
+		print(root);
+		
+		
+	}
+	
+	
+	/*
+	 * You are given a pointer to a node in a singly linked list.
+	 *  Delete that node from the linked list. 
+	 *  Pointer to previous node is not available.
+	 */
+	
+	public void deleteNodePointer(LinkNode pointer) {
+		if (pointer == null) {
+			return;
+		}
+
+		// in case its not last node
+		if (pointer.getLink() != null) {
+			pointer.setData(pointer.getLink().getData());
+			pointer.setLink(pointer.getLink().getLink());
+			return;
+		}
+		// otherwise
+		else {
+			//indicate that the node is deleted
+			pointer.setData(-1);
+		}
+	}
+	
+	
+	
+	
 	
 
 }
