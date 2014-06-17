@@ -1,6 +1,12 @@
+/**
+ * @author Vikky.Agrawal
+ * Link List operations and solutions to few problems
+ */
+
 public class LinkedList {
 
-	LinkNode node = null;
+	Node node = null;
+	
 
 	public static void main(String[] args) {
 
@@ -11,120 +17,47 @@ public class LinkedList {
 
 	public void operations() {
 
-		this.node = new LinkNode(10);
+		this.node = new Node(10);
 
 		for (int i = 1; i < 6; i++) {
 			add(node, (int) (Math.random() * 100));
 		}
 
-		/*System.out.println("Before reversal"); 
+		/*System.out.println("Test: iterative, List before reversal"); 
 		print(node);
-		reverse(node); */
+		this.node=reverse(node); 
+	
 		
-		
-		printNthFromLast(node, 6);
-		System.out.println("Print again"); 
+		System.out.println("Test: recursive, List before reversal");
+		print(node);
+		this.node=this.recursiveReverse(node);
+		System.out.println("After recursice reverse list is : ");
 		print(node);
 		
-		
-		printMiddle(node);
-
-		rotateACW(node, 6);
-
-		// testing union of two lists
-		 LinkNode list1=new LinkNode(2); 
-		  LinkNode list2=new LinkNode(2);
-		  
-		  for(int i=5;i<15;i++){ 
-			  add(list1, i); 
-			  add(list2, i+2); 
-		  }
-		  
-		  
-		  getUnion(list1, list2);
-		 
-
-		LinkNode duplicateList = new LinkNode(3);
-		add(duplicateList, 3);
-		add(duplicateList, 3);
-		add(duplicateList, 4);
-		add(duplicateList, 4);
-		add(duplicateList, 5);
-		add(duplicateList, 5);
-		add(duplicateList, 6);
-		add(duplicateList, 7);
-		add(duplicateList, 8);
-		add(duplicateList, 8);
-		add(duplicateList, 8);
-
-		removeDuplicates(duplicateList);
+		*/
 		
 		
-		LinkNode swapList=new LinkNode(1);
-		for(int i=2; i<6; i++){
-			add(swapList,i);
-		}
-		
-		//this.swap(swapList);
-		System.out.println("before recurise reverse :");
-		print(swapList);
-		System.out.println("After recurise reverse :");
-		
-		print(recursiveReverse(swapList));
-		
+		this.rotateACW(node, 8);
+			
 
 	}
 
-	public void add(LinkNode ptr, int data) {
-		if (ptr == null) {
-			System.out.println("Always null ?");
-			ptr = new LinkNode(data);
-		} else {
-			LinkNode newptr = ptr;
-			while (newptr.getLink() != null) {
-				newptr = newptr.getLink();
-			}
-			newptr.setLink(new LinkNode(data));
-			newptr.getLink().setLink(null);
-		}
-	}
-
-	public void print(LinkNode ptr) {
-
-		if (ptr == null) {
-			return;
-		}
-		LinkNode ptr1 = ptr;
-		System.out.print(ptr1.getData() + "->");
-		while ((ptr1 = ptr1.getLink()) != null) {
-			System.out.print(ptr1.getData() + "->");
-		}
-		System.out.println("/n");
-
-	}
-
-	public int size(LinkNode ptr) {
-
-		if (ptr == null) {
-			return -1;
-		}
-		LinkNode ptr1 = ptr;
-		int i = 1;
-		while ((ptr1 = ptr1.getLink()) != null) {
-			i++;
-		}
-		return i;
-	}
-
-	public void reverse(LinkNode ptr) {
+	
+	
+	/*
+	 * Reverse a linked list iterative.
+	 * Using auxiliary pointers.
+	 */
+	
+	public Node reverse(Node ptr) {
 
 		if (ptr == null) {
 			System.out.println("List is empty:returning");
-			return;
+			return null;
 		}
-		LinkNode ptr1 = ptr;
-		LinkNode ptr2 = ptr;
-		LinkNode ptr3 = null;
+		Node ptr1 = ptr;
+		Node ptr2 = ptr;
+		Node ptr3 = null;
 
 		while (ptr1.getLink() != null) {
 			ptr2 = ptr1;
@@ -137,16 +70,19 @@ public class LinkedList {
 
 		System.out.println("Reversed List :");
 		this.print(ptr1);
+		return ptr1;
 	}
 	
 	/*
-	 * RecursiveReverse() What is the reverse of null (the empty list)? null.
-	 * What is the reverse of a one element list? the element. What is the
-	 * reverse of an n element list? the reverse of the second element on
+	 * RecursiveReverse() 
+	 * Use cases:
+	 * What is the reverse of null (the empty list)? null.
+	 * What is the reverse of a one element list? the element. 
+	 * What is the reverse of an n element list? the reverse of the second element on
 	 * followed by the first element.
 	 */
 
-	public LinkNode recursiveReverse(LinkNode root) {
+	public Node recursiveReverse(Node root) {
 
 		// base case
 
@@ -154,7 +90,7 @@ public class LinkedList {
 			return root;
 		}
 
-		LinkNode temp = recursiveReverse(root.getLink());
+		Node temp = recursiveReverse(root.getLink());
 
 		// temp contains last element when recursion done
 		// take 2 nodes and dry-run
@@ -170,7 +106,7 @@ public class LinkedList {
 	 *  reccursively
 	 */
 	
-	public void printReverseRecursive(LinkNode root){
+	public void printReverseRecursive(Node root){
 
 		if(root.getLink()!=null){
 			printReverseRecursive(root.getLink());
@@ -181,9 +117,7 @@ public class LinkedList {
 	}
 	
 	
-	
-
-	public void printNthFromLast(LinkNode root, int n) {
+	public void printNthFromLast(Node root, int n) {
 
 		int i = n;
 		if (root == null) {
@@ -195,8 +129,8 @@ public class LinkedList {
 			return;
 		}
 
-		LinkNode node = root;
-		LinkNode nodeback = root;
+		Node node = root;
+		Node nodeback = root;
 
 		while ((node.getLink() != null) && (--i > 0)) {
 			node = node.getLink();
@@ -218,7 +152,7 @@ public class LinkedList {
 	 * Print middle element using slow and fast pointers.
 	 */
 
-	public void printMiddle(LinkNode root) {
+	public void printMiddle(Node root) {
 		if (root == null) {
 			return;
 		}
@@ -226,8 +160,8 @@ public class LinkedList {
 		System.out.println("Linked list is ");
 		print(root);
 
-		LinkNode hare = null;
-		LinkNode tortoise = null;
+		Node hare = null;
+		Node tortoise = null;
 		boolean temp = false;
 		if (size(root) % 2 == 0)
 			temp = true;
@@ -256,7 +190,7 @@ public class LinkedList {
 	 * Rotate a linked list Anti clock wise for given number of nodes
 	 */
 
-	public void rotateACW(LinkNode root, int n) {
+	public void rotateACW(Node root, int n) {
 
 		if (root == null || n<=0) {
 			return;
@@ -277,15 +211,15 @@ public class LinkedList {
 		System.out.println("List Before rotating");
 		print(root);
 
-		LinkNode ptr = root;
-		LinkNode ptr1 = null;
+		Node ptr = root;
+		Node ptr1 = null;
 
 		while (n-- > 0) {
 			ptr1 = ptr;
 			ptr = ptr.getLink();
 		}
 
-		LinkNode temp = ptr;
+		Node temp = ptr;
 
 		while (temp.getLink() != null) {
 			temp = temp.getLink();
@@ -305,7 +239,7 @@ public class LinkedList {
 	 * sorted(with unique elements)
 	 */
 
-	public void getUnion(LinkNode list1, LinkNode list2) {
+	public void getUnion(Node list1, Node list2) {
 
 		if (list1 == null && list2 == null) {
 			return;
@@ -317,7 +251,7 @@ public class LinkedList {
 		System.out.println("List 2: ");
 		print(list2);
 
-		LinkNode newList = new LinkNode();
+		Node newList = new Node();
 
 		while (list1 != null && list2 != null) {
 			if (list1.getData() < list2.getData()) {
@@ -354,9 +288,9 @@ public class LinkedList {
 	 * to do Inplace
 	 */
 
-	public void removeDuplicates(LinkNode node) {
+	public void removeDuplicates(Node node) {
 
-		LinkNode root = node;
+		Node root = node;
 
 		if (root == null) {
 			return;
@@ -368,7 +302,7 @@ public class LinkedList {
 		while (root != null) {
 
 			if (root.getData() == root.getLink().getData()) {
-				LinkNode ptr = root.getLink();
+				Node ptr = root.getLink();
 				while (ptr != null && ptr.getLink() != null
 						&& (ptr.getData() == ptr.getLink().getData())) {
 					ptr = ptr.getLink();
@@ -387,7 +321,7 @@ public class LinkedList {
 	 * e.g. 1->2->3->4->5->6 should become 2->1->4->3->6->5
 	 */
 	
-	public void swap(LinkNode root){
+	public void swap(Node root){
 		
 		if(root == null){
 			return;
@@ -397,7 +331,7 @@ public class LinkedList {
 		print(root);
 		
 		
-		LinkNode temp=root;
+		Node temp=root;
 		while(temp!=null && temp.getLink()!=null){
 			int data=temp.getData();
 			temp.setData(temp.getLink().getData());
@@ -417,7 +351,7 @@ public class LinkedList {
 	 *  Pointer to previous node is not available.
 	 */
 	
-	public void deleteNodePointer(LinkNode pointer) {
+	public void deleteNodePointer(Node pointer) {
 		if (pointer == null) {
 			return;
 		}
@@ -439,5 +373,86 @@ public class LinkedList {
 	
 	
 	
+	/*
+	 * Helper functions for LinkedList
+	 */
+	public void add(Node ptr, int data) {
+		if (ptr == null) {
+			System.out.println("Always null ?");
+			ptr = new Node(data);
+		} else {
+			Node newptr = ptr;
+			while (newptr.getLink() != null) {
+				newptr = newptr.getLink();
+			}
+			newptr.setLink(new Node(data));
+			newptr.getLink().setLink(null);
+		}
+	}
 
+	public void print(Node ptr) {
+
+		if (ptr == null) {
+			return;
+		}
+		Node ptr1 = ptr;
+		System.out.print(ptr1.getData() + "->");
+		while ((ptr1 = ptr1.getLink()) != null) {
+			System.out.print(ptr1.getData() + "->");
+		}
+		System.out.println("/n");
+
+	}
+
+	public int size(Node ptr) {
+
+		if (ptr == null) {
+			return -1;
+		}
+		Node ptr1 = ptr;
+		int i = 1;
+		while ((ptr1 = ptr1.getLink()) != null) {
+			i++;
+		}
+		return i;
+	}
+
+	
+	
+	
+	
+	/*
+	 * static inner class for LinkedList Data Structure
+	 */
+	private static class Node{
+		 private int data;
+		 private Node link; 		 
+		    
+		    Node(){
+		    	    	
+		    }
+		    
+		    Node(int data){
+		    	//mergedList=new Node();
+		        this.setData(data);
+		        this.setLink(null);       
+		    }
+		    
+		    public int getData(){
+		        return this.data;
+		    }
+		      
+		    public Node getLink(){
+		        return this.link;
+		    }
+		    
+		    public void setData(int data){
+		        this.data=data;
+		    }       
+		    
+		    public void setLink(Node link){
+		        this.link=link;
+		    }  
+	}
+	
 }

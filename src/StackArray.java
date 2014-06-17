@@ -1,27 +1,19 @@
 /**
- * @author vikky.agrawal
- *
+ * @author Vikky.Agrawal
  *
  */
-
-
-
-class Student{
-	
-	
-	
-}
-public class Stack {
+public class StackArray {
 
 	/**
 	 * @param args
 	 */
 	
 	
+	
 	private static int N=-1;
 	private int[] arr;
 	
-	Stack(int size){
+	StackArray(int size){
 		this.arr =new int[size];
 	}
 	
@@ -36,11 +28,11 @@ public class Stack {
 		
 		
 		
-		Stack stack=new Stack(20);
+		StackArray StackArray=new StackArray(20);
 		
 		for(int i=0;i<10;i++){
-			stack.push((int)(Math.random()*100));
-			System.out.println(stack.peek());
+			StackArray.push((int)(Math.random()*100));
+			System.out.println(StackArray.peek());
 		}
 		
 		
@@ -102,6 +94,5 @@ public class Stack {
 		}
 		return flag;
 		}
-	
 
 }

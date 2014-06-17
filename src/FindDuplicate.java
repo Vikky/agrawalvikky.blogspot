@@ -1,7 +1,7 @@
 /**
  * @author Vikky.Agrawal
  * Given an array in range 1..n, a val is repeated twice and a value is missing
- *  find that duplicate in O(n) 
+ * find that duplicate in O(n) 
  */
 
 
