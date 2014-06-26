@@ -92,8 +92,8 @@ public class LinkedList {
 
 		Node temp = recursiveReverse(root.getLink());
 
-		// temp contains last element when recursion done
-		// take 2 nodes and dry-run
+		// temp contains last element when recursion done; ie. temp always points to last node while recursion done and returned
+		// take 2/3 nodes and dry-run
 
 		root.getLink().setLink(root);
 		root.setLink(null);
