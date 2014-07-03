@@ -126,7 +126,7 @@ public class TreeTraversal {
 		 * alternate solution //the criteria to decide when we stop the loop is
 		 * when current points to null and no nodes in stack
 		  while(currentNode!=null || !stack.isEmpty()) { 
-		  //firstly if  	currentNode is not null, we push currentNode to stack and shift focus to its left sub-tree 
+		  //firstly if  currentNode is not null, we push currentNode to stack and shift focus to its left sub-tree 
 		  if(currentNode!=null) { stack.push(currentNode);
 		  currentNode = currentNode.getLeft(); } 
 		  else//we need pop out nodes from the stack and at that time we shift focus to its right sub-tree

@@ -29,7 +29,7 @@ public class Main {
 		
 		
 		
-		int ii=1/2;
+		int ii=11/2;
 		System.out.println(ii);
 		
 			Pattern newspattern = Pattern.compile("([-]+)");

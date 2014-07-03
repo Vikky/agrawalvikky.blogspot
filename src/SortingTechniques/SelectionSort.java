@@ -6,27 +6,34 @@ package SortingTechniques;
  */
 public class SelectionSort {
 
+	
+	int[] arr;
+
+	SelectionSort() {
+		arr = new int[] { 5, 3, 1, 2, 9, 8 };
+	}
+	
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		SelectionSort obj = new SelectionSort();
-
-		int[] arr = { 5, 3, 1, 2, 9, 8 };
-
-		System.out.println("Array before sorting : ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
-
-		obj.selectionSort(arr);
-
-		System.out.println("\nSorted array : ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
+		obj.operate();
 
 	}
+	
+	public void operate(){
+
+
+		System.out.println("Array before sortings: ");
+		printArray();
+		selectionSort(arr);
+
+		System.out.println("Sorted array : ");
+		printArray();
+	}
+	
 	
 	
 	/*
@@ -57,4 +64,13 @@ public class SelectionSort {
 		}
 	}
 
+	
+	public void printArray(){
+		for (int a : arr) {
+			System.out.print(a + " ");
+		}
+		System.out.println();
+	}
+	
+	
 }

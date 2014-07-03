@@ -6,28 +6,34 @@ package SortingTechniques;
  */
 public class MergeSort {
 
+	
+	int[] arr;
+	
+	MergeSort(){
+		arr=new int[] { 5, 3, 1, 2, 9, 8 };
+	}
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+
+		MergeSort obj = new MergeSort();
+		obj.operate();
 		
-		MergeSort obj=new MergeSort();
-		
-		int[] arr = { 5, 3, 1, 2, 9, 8 };
+
+	}
+	
+	
+	public void operate(){
+
 
 		System.out.println("Array before sortings: ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
+		printArray();
+		mergeSort(arr,0,5);
 
-		obj.mergeSort(arr, 0, 5);
-
-		System.out.println("\nSorted array : ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
-		
-		
+		System.out.println("Sorted array : ");
+		printArray();
 	}
 	
 	
@@ -73,4 +79,14 @@ public class MergeSort {
 	}
 	
 
+	public void printArray(){
+		for (int a : arr) {
+			System.out.print(a + " ");
+		}
+		System.out.println();
+	}
+	
+	
+	
+	
 }

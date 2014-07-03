@@ -6,29 +6,35 @@ package SortingTechniques;
  */
 public class BubbleSort {
 
+	
+	
+	int[] arr;
+
+	BubbleSort() {
+		arr = new int[] { 5, 3, 1, 2, 9, 8 };
+	}
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		BubbleSort obj = new BubbleSort();
-
-		int[] arr = { 5, 3, 1, 2, 9, 8 };
-
-		System.out.println("Array before sorting : ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
-
-		obj.bubbleSort(arr);
-
-		System.out.println("\nSorted array : ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
-
+		obj.operate();
 		
 	}
+	
+	public void operate(){
+		System.out.println("Array before sorting : ");
+		printArray();
+		
+		bubbleSort(arr);
+		
+		System.out.println("\nSorted array : ");
+		printArray();
+	}
+	
+	
 
 	/*
 	 * stable sort
@@ -56,4 +62,12 @@ public class BubbleSort {
 		}
 		
 	}
+	
+	public void printArray(){
+		for (int a : arr) {
+			System.out.print(a + " ");
+		}
+		System.out.println();
+	}
+	
 }

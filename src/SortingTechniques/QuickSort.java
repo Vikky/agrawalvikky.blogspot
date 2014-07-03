@@ -6,29 +6,33 @@ package SortingTechniques;
  */
 public class QuickSort {
 
+	
+	int[] arr;
+	
+	QuickSort(){
+		arr=new int[] { 5, 3, 1, 2, 9, 8 };
+	}
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
 		QuickSort obj = new QuickSort();
-
-		int[] arr = { 5, 3, 1, 2, 9, 8 };
-
-		System.out.println("Array before sorting : ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
-
-		obj.quickSort(arr,0,5);
-
-		System.out.println("\nSorted array : ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
-
-
+		obj.operate();
 	}
+	
+	
+	public void operate(){
+		
+		System.out.println("Array before sortings: ");
+		printArray();
+		quickSort(arr,0,5);
+
+		System.out.println("Sorted array : ");
+		printArray();
+	}
+	
 	
 	public void quickSort(int[] arr, int p, int r){
 		
@@ -42,7 +46,9 @@ public class QuickSort {
 	
 	
 	/*
-	 * Algorithm for partition to find pivot PARTITION.A;p;r/ 
+	 * Algorithm for partition to find pivot
+	 * 
+	 * PARTITION.A;p;r
 	 * 1 x =A[r]
 	 * 2 i = p-1
 	 * 3 for j =p to r-1
@@ -71,4 +77,14 @@ public class QuickSort {
 		arr[i+1]=x;
 		return i+1;
 	}
+	
+	public void printArray(){
+		for (int a : arr) {
+			System.out.print(a + " ");
+		}
+		System.out.println();
+	}
+	
+	
+	
 }

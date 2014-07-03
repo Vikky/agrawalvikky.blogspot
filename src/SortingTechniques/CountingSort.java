@@ -46,38 +46,42 @@ public class CountingSort {
 		
 		
 		System.out.println("Input array :");
-		for(int l=0;l<a.length; l++){
-			System.out.print(a[l]+" , ");
-		}
+		printArray(a);
 		
 		int[] b=new int[a.length];
 		int[] c=new int[k+1];
 		
-		for(int i=1;i<a.length;i++){
+		for(int i=0;i<a.length;i++){
 			c[a[i]]=c[a[i]]+1;
 		}
 		// C[i] now contains the number of elements equal to i. if c[5]=3 then there are 3 5's
 		
 		
+		//sutract 1 to make array index from 0;
+		c[0]=c[0]-1;
 		for(int i=1;i<c.length;i++){
 			c[i]=c[i]+c[i-1];
 		}
+		
 		//C[i] now contains the number of elements less than or equal to i.
 		//if c[1]=3 then there are 3 elements which are less than or equal to 1. 
 		
-		for(int j=a.length-1; j>0 ;j--){
+		for(int j=a.length-1; j>=0 ;j--){
 			b[c[a[j]]]=a[j];     //c[j] contains actual location of a[j]; 
 			c[a[j]]=c[a[j]]-1;
 		}
 		
-		System.out.println("Sorted array :");
-		for(int l=0;l<b.length; l++){
-			System.out.print(b[l]+" , ");
-		}		
+		System.out.println("\nSorted array :");
+		printArray(b);		
 		
 		return b;
 	}
 	
-	
+	public void printArray(int[] arr){
+		for (int a : arr) {
+			System.out.print(a + " ");
+		}
+		System.out.println();
+	}
 
 }

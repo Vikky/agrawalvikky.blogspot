@@ -80,9 +80,11 @@ public class StackImpl {
 		queue.printQueueRear(queue.stack1.top);
 		
 		
+		System.out.println("\n"+queue.dequeue());
 		System.out.println(queue.dequeue());
-		System.out.println(queue.dequeue());*/
 				
+		queue.printQueueRear(queue.stack1.top);
+		*/
 		
 	}
 	
@@ -94,12 +96,12 @@ public class StackImpl {
 			push((int) (Math.random() * 100));
 		}
 		
-		/*printStack();
+		printStack();
 		
 		top=this.reverseStack(top);
 		System.out.println("Stack after reverse");
 		printStack();
-		*/
+		
 		
 	}
 	
@@ -143,13 +145,13 @@ public class StackImpl {
 		}
 	}
 	
-	public Node pop(){
+	public int pop(){
 		if(top==null){
-			return null;
+			return -1;
 		}else{
 			Node temp=top;
 			top=top.getLink();
-			return temp;
+			return temp.getData();
 		}
 	}
 	
@@ -260,14 +262,14 @@ class QueueUsingStacks{
 		
 		
 		while(stack1.top.getLink()!=null){
-			stack2.push(stack1.pop().getData());
+			stack2.push(stack1.pop());
 		}
 		
-		int data= stack1.pop().getData();
+		int data= stack1.pop();
 		
 
 		while(stack2.top!=null){
-			stack1.push(stack2.pop().getData());
+			stack1.push(stack2.pop());
 		}
 		return data;
 		

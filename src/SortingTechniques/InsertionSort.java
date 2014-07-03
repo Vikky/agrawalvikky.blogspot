@@ -6,28 +6,36 @@ package SortingTechniques;
  */
 public class InsertionSort {
 
+	
+	int[] arr;
+	
+	InsertionSort(){
+		arr=new int[] { 5, 3, 1, 2, 9, 8 };
+	}
+	
 	/**
 	 * @param args
 	 */
+	
 	public static void main(String[] args) {
 
 		InsertionSort obj = new InsertionSort();
-
-		int[] arr = { 5, 3, 1, 2, 9, 8 };
-
-		System.out.println("Array before sortings: ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
-
-		obj.sort(arr);
-
-		System.out.println("\nSorted array : ");
-		for (int a : arr) {
-			System.out.print(a + " ");
-		}
+		obj.operate();
+		
 
 	}
+	
+	public void operate(){
+
+
+		System.out.println("Array before sortings: ");
+		printArray();
+		sort();
+
+		System.out.println("Sorted array : ");
+		printArray();
+	}
+	
 
 	/*
 	 * Insertion Sort algo: 
@@ -41,7 +49,7 @@ public class InsertionSort {
 	 * 8 Arr[i+1] = key
 	 */
 
-	public int[] sort(int[] arr) {
+	public int[] sort() {
 
 		int length = arr.length;
 		int i = 0;
@@ -60,4 +68,12 @@ public class InsertionSort {
 		return arr;
 	}
 
+	public void printArray(){
+		for (int a : arr) {
+			System.out.print(a + " ");
+		}
+		System.out.println();
+	}
+	
+	
 }
