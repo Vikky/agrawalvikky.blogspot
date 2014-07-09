@@ -10,7 +10,14 @@ public class Main {
 	public static void main(String ar[])throws Exception{
 		new MainTest();//.print();
 		
-		String s1="abc";
+		A a =new B();
+		a.f1();
+		
+		
+		
+	//	new MainTest();
+		
+		/*String s1="abc";
 		String s2="abc";
 		
 		System.out.println(s1==s2);
@@ -54,7 +61,7 @@ public class Main {
 	        	}
 	        }
 	        
-		System.out.println("after conversion : "+string);
+		System.out.println("after conversion : "+string);*/
 		
 		
 	}
@@ -63,26 +70,68 @@ public class Main {
 
 
 
-class MainTest{	
+class MainTest {	
 	
-	MainTest(){
+	MainTest()throws Exception{
 		
 		System.out.println("inside constructor");
-		
+		try{
+			print();
+		}catch(IndexOutOfBoundsException ioe){
+			System.out.println("Index exception ");
+		}catch(Exception e){
+			System.out.println("exception e");
+		}
 	}
 	
 	static{		
 		System.out.println("static block executing");
+		//int i=1/0;
 	}
 	
-	public void print(){
+	public void print()throws Exception{
 		System.out.println("insid hello");
+		
+		
+		try{
+			throw new Exception();
+		}catch(Exception e){
+			
+			throw new Exception();
+			
+		}finally{
+			
+			System.out.println("executing finally?");
+			throw new IndexOutOfBoundsException();
+			
+		}
+	
+		
 	}
 	
 	
 	
+}
+
+
+class A{
+	
+	public void f1(){
+		f2();
+	}
+	
+	public void f2(){
+		System.out.println("executing super ");
+	}
 	
 	
+}
+
+class B extends A{
+	
+	public void f2(){
+		System.out.println("executing sub class ");
+	}
 	
 	
 	
