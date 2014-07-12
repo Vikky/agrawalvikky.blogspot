@@ -58,7 +58,7 @@ public class RightDownPaths {
 		printArray(arr);
 		
 		
-		System.out.println("Total number of paths going right and down from [0,0] is = "+arr[0][0]);
+		System.out.println("Total number of paths going right/down from [0,0] is = "+arr[0][0]);
 		
 	}
 	

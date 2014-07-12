@@ -1,5 +1,6 @@
 import java.util.Stack;
 
+
 /**
  * @author vikky.agrawal
  * 
@@ -7,7 +8,12 @@ import java.util.Stack;
 
 public class BST {
 
-	private TreeNode root = new TreeNode(5);
+	private TreeNode root;
+	
+	BST(){
+		root = new TreeNode(5);
+	}
+	
 
 	public static void main(String[] args) {
 
@@ -162,4 +168,48 @@ public class BST {
 	 * }
 	 */
 
+
+	//DS for tree
+	private static class TreeNode {
+    
+    private int data;
+    private TreeNode right;
+    private TreeNode left;   
+    
+    TreeNode(){}
+    
+    TreeNode(int data){
+        this.setData(data);
+        this.setLeft(null);
+        this.setRight(null);
+    }
+    
+    public int getData(){
+        return this.data;
+    }
+    
+    public TreeNode getRight(){
+        return this.right;
+    }
+    
+    public TreeNode getLeft(){
+        return this.left;
+    }
+    
+    public void setData(int data){
+        this.data=data;
+    }
+    
+    public void setRight(TreeNode right){
+        this.right=right;
+    }
+    
+    public void setLeft(TreeNode left){
+        this.left=left;
+    }  
+}
+	
+	
+	
+	
 }

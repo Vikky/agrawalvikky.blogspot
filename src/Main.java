@@ -8,12 +8,13 @@ import java.util.regex.Pattern;
 public class Main {
 
 	public static void main(String ar[])throws Exception{
-		new MainTest();//.print();
-		
-		A a =new B();
-		a.f1();
-		
-		
+		try{
+			new MainTest();//.print();
+		}catch(Exception e){
+			//can't catch exception in static initializer block.			
+			System.out.println("first exception for static block");
+		}
+		new MainTest();
 		
 	//	new MainTest();
 		
@@ -86,7 +87,7 @@ class MainTest {
 	
 	static{		
 		System.out.println("static block executing");
-		//int i=1/0;
+		int i=1/0;
 	}
 	
 	public void print()throws Exception{

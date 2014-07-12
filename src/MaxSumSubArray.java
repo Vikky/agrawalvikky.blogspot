@@ -11,7 +11,7 @@ public class MaxSumSubArray {
 	int arr[];
 
 	MaxSumSubArray() {
-		arr = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+		arr = new int[] { -2, -1, -3, -4, -1, -2, -1, -5, -4 };
 	}
 
 	public static void main(String[] args) {
@@ -23,6 +23,8 @@ public class MaxSumSubArray {
 		System.out.println("Max sum is " + findMaxSum(arr, 0, arr.length - 1));
 		System.out.println("Max sum using kadane's algo :"
 				+ findMaxSubArraySum(arr));
+		System.out.println("Alternate kadane's :"+findMaxSumKadane(arr));
+		
 	}
 
 	public int findMaxSum(int arr[], int low, int high) {
@@ -80,7 +82,7 @@ public class MaxSumSubArray {
 
 		for (int i = 1; i < arr.length; i++) {
 
-			if (max_ending_here < 0) {
+			if (max_ending_here < arr[i]) {
 				max_ending_here = arr[i];
 				temp = i;
 			} else {
@@ -101,12 +103,20 @@ public class MaxSumSubArray {
 		return max_so_far;
 	}
 
-	//Another approach using Kadane's
+	//Another approach using Kadane's algorithm
 	public int findMaxSumKadane(int arr[]){
-		int  max_ending_here =0, max_so_far = 0;
 		
-		for(int data:arr){
-			max_ending_here=maxOfTwo(0,	max_ending_here+data);
+		int length=arr.length;
+		
+		if(length==0){
+			return Integer.MIN_VALUE;
+		}
+		
+		//This will help with negative numbers.
+		int  max_ending_here =arr[0], max_so_far = arr[0];
+		
+		for(int j=1; j<length; j++){
+			max_ending_here=maxOfTwo(max_ending_here+arr[j],arr[j]);
 			max_so_far= maxOfTwo(max_so_far, max_ending_here);
 		}
 		
