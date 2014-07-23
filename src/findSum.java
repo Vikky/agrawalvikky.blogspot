@@ -9,10 +9,13 @@ public class findSum {
 	public static void main(String arg[]) {
 
 		findSum obj = new findSum();
-		System.out.println("whether sum exists :"
+		int sum=108;
+		System.out.println("whether sum: "+sum+" exists :"
 				+ obj.findNo(new int[] { 1, 3, 6, 8, 9, 10, 19, 31, 34, 42, 56,
 						76, 89, 99 }, 108));
-
+		sum=15;
+		System.out.println("\nPrinting all pairs for given sum : "+sum);
+		obj.printAllPairs(new int[] { 6,7,8,9,10},sum);
 	}
 
 	/*
@@ -47,5 +50,25 @@ public class findSum {
 		return false;
 	}
 
+	
+	public void printAllPairs(int[] arr, int givenno){
+		
+		int len=arr.length;
+		
+		for(int i=0, j=len-1; i<=j ; ){
+			
+			if(arr[i]+arr[j]==givenno){
+				System.out.println("Pair :"+arr[i]+" , "+arr[j]);
+				i++;
+				j--;
+			}else if(arr[i]+arr[j]<givenno){
+				i++;
+			}else{
+				j--;
+			}
+		}
+		
+	}
+	
 	
 }

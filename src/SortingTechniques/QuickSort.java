@@ -2,7 +2,7 @@ package SortingTechniques;
 
 /**
  * @author Vikky.Agrawal
- *
+ * 
  */
 public class QuickSort {
 

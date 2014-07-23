@@ -18,29 +18,29 @@ import java.util.Date;
 
 
 public final class ImmutableImpl {
-	
+
 	//mark field variables private and final
 	private final int var;	
 	private final Date date;
-	
+
 	ImmutableImpl(int var, Date date){
 		this.var=var;
 		//makes it more robust if any changes made in date passed in constructor		
 		this.date=new Date(date.getTime());
 	}
-	
+
 	public int getVar() {
 		return var;
 	}
-	
+
 	//return a new Date object using present Date.
 	//Makes it immutable
 	public Date getDate() {
 		return new Date(this.date.getTime());
 	}
-	
-	
+
+
 	//No setter methods
-	
-		
+
+
 }

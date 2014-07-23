@@ -11,7 +11,8 @@ public class MaxSumSubArray {
 	int arr[];
 
 	MaxSumSubArray() {
-		arr = new int[] { -2, -1, -3, -4, -1, -2, -1, -5, -4 };
+		arr = new int[] {-2,1,-3,4,-1,2,1,-5,4};
+				//{ -2, -1, -3, -4, -1, -2, -1, -5, -4 };
 	}
 
 	public static void main(String[] args) {
