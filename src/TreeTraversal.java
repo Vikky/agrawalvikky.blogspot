@@ -259,8 +259,7 @@ public class TreeTraversal {
 				System.out.print(currentNode.getData() + ", ");
 				stack.push(currentNode.getRight());
 				currentNode = currentNode.getLeft();
-			} else// t==null
-			{
+			} else {
 				currentNode = stack.pop();
 			}
 		}

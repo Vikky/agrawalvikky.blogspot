@@ -8,17 +8,17 @@ import java.util.regex.Pattern;
 public class Main {
 
 	public static void main(String ar[])throws Exception{
-		try{
+		/*try{
 			new MainTest();//.print();
 		}catch(Exception e){
 			//can't catch exception in static initializer block.			
 			System.out.println("first exception for static block");
 		}
-		new MainTest();
+		new MainTest();*/
 		
 	//	new MainTest();
 		
-		/*String s1="abc";
+		String s1="abc";
 		String s2="abc";
 		
 		System.out.println(s1==s2);
@@ -27,8 +27,8 @@ public class Main {
 		String s3= new String("abc");
 		
 		System.out.println(s1==s3);
-		
-		
+		System.out.println(s1.equals(s3));
+		/*
 		//to check how singleton implemented with Runtime java class
 		Runtime.getRuntime();
 		

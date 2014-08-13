@@ -11,7 +11,7 @@ public class findSum {
 		findSum obj = new findSum();
 		int sum=108;
 		System.out.println("whether sum: "+sum+" exists :"
-				+ obj.findNo(new int[] { 1, 3, 6, 8, 9, 10, 19, 31, 34, 42, 56,
+				+ obj.find(new int[] { 1, 3, 6, 8, 9, 10, 19, 31, 34, 42, 56,
 						76, 89, 99 }, 108));
 		sum=15;
 		System.out.println("\nPrinting all pairs for given sum : "+sum);
@@ -22,7 +22,7 @@ public class findSum {
 	 * O(n) solution to check whether sum of 2 numbers equals to any given number
 	 */
 	
-	public boolean findNo(int arr[], int givenNo) {
+	public boolean find(int arr[], int givenNo) {
 		int len = arr.length;
 
 		for (int i = 0, j = len - 1; i <= j;) {
@@ -50,7 +50,9 @@ public class findSum {
 		return false;
 	}
 
-	
+	/*
+	 * Prints all pairs(unique) which equate to given sum
+	 */
 	public void printAllPairs(int[] arr, int givenno){
 		
 		int len=arr.length;
@@ -67,7 +69,6 @@ public class findSum {
 				j--;
 			}
 		}
-		
 	}
 	
 	
