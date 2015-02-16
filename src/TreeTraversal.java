@@ -2,7 +2,7 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
- * @author Vikky.Agrawal
+ * @author vikky.agrawal
  * Implementation of various tree traversals.
  * 
  */

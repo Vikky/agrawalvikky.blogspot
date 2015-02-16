@@ -1,7 +1,7 @@
 package SortingTechniques;
 
 /**
- * @author Vikky.Agrawal
+ * @author vikky.agrawal
  *
  */
 public class MergeSort {
