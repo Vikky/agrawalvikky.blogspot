@@ -1,7 +1,8 @@
 /**
- * @author vikky.agrawal 
- * program to find whether sum of 2 numbers equals to a
+ * Program to find whether sum of 2 numbers equals to a
  * given no in a sorted array
+ * @author vikky.agrawal 
+ *
  * 
  */
 public class findSum {
@@ -22,25 +23,25 @@ public class findSum {
 	 * O(n) solution to check whether sum of 2 numbers equals to any given number
 	 */
 	
-	public boolean find(int arr[], int givenNo) {
+	public boolean find(int arr[], int givenSum) {
 		int len = arr.length;
 
 		for (int i = 0, j = len - 1; i <= j;) {
-			if (arr[i] + arr[j] == givenNo) {
-				System.out.println("Given no : "+givenNo+" found at index : " + i + " value :" + arr[i]+ " and index : " + j + " value : " + arr[j]);
+			if (arr[i] + arr[j] == givenSum) {
+				System.out.println("Given no : "+givenSum+" found at index : " + i + " value :" + arr[i]+ " and index : " + j + " value : " + arr[j]);
 				return true;
-			} else if (arr[i] + arr[j] < givenNo) {
+			} else if (arr[i] + arr[j] < givenSum) {
 				//Rather than blind increment
 				//Smartly checks whether middle is a viable index if yes then point to that index+1
-				if (arr[(i + j) / 2] + arr[j] < givenNo) {
+				if (arr[(i + j) / 2] + arr[j] < givenSum) {
 					i = ((i + j) / 2) + 1;
 				} else {
 					//otherwise increment pointer
 					i++;
 				}
-			} else if (arr[i] + arr[j] > givenNo) {
+			} else if (arr[i] + arr[j] > givenSum) {
 				//Decrement; same as above
-				if (arr[i] + arr[(i + j) / 2] > givenNo) {
+				if (arr[i] + arr[(i + j) / 2] > givenSum) {
 					j = ((i + j) / 2) - 1;
 				} else {
 					j--;
@@ -53,17 +54,17 @@ public class findSum {
 	/*
 	 * Prints all pairs(unique) which equate to given sum
 	 */
-	public void printAllPairs(int[] arr, int givenno){
+	public void printAllPairs(int[] arr, int givenSum){
 		
 		int len=arr.length;
 		
 		for(int i=0, j=len-1; i<=j ; ){
 			
-			if(arr[i]+arr[j]==givenno){
+			if(arr[i]+arr[j]==givenSum){
 				System.out.println("Pair :"+arr[i]+" , "+arr[j]);
 				i++;
 				j--;
-			}else if(arr[i]+arr[j]<givenno){
+			}else if(arr[i]+arr[j]<givenSum){
 				i++;
 			}else{
 				j--;
