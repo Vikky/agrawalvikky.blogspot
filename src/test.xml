@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="InsertionConfig"
+		class="com.expedia.e3.cpn.testengine.xmlverification.test.config.InsertManager">
+		<property name="insertionDictionary">
+			<map>
+				<entry key="Test_MT12">
+					<map>
+						<entry key="CreateReserveCpnRequest1" value="" />
+						<entry key="CreateMapTransactionRequest1" value="" />
+
+						<entry key="InsertHotelReward1"
+							value="resources/test_data/mapTransaction/test_data/MT12/reward1.properties" />
+
+						<entry key="InsertTraveler1"
+							value="resources/test_data/db/data/generalTemplates/user/traveler_Account1.properties" />
+						<entry key="InsertTraveler2"
+							value="resources/test_data/db/data/generalTemplates/user/traveler_User1.properties" />
+						<entry key="InsertTraveler3"
+							value="resources/test_data/db/data/generalTemplates/user/traveler_Guest1.properties" />
+
+						<entry key="InsertTravelerAccount1"
+							value="resources/test_data/db/data/generalTemplates/user/travelerAccount1.properties" />
+						<entry key="InsertTravelerAccount2"
+							value="resources/test_data/db/data/generalTemplates/user/travelerAccount2.properties" />
+						<entry key="InsertTravelerAccount3"
+							value="resources/test_data/db/data/generalTemplates/user/travelerAccount3.properties" />
+
+						<entry key="InsertTravelerAccountReward1" value="" />
+
+						<entry key="InsertTravelerAccountRewardOrderLine1"
+							value="resources/test_data/mapTransaction/test_data/MT12/orderLine1.properties" />
+						<entry key="InsertTravelerAccountRewardOrderLine2"
+							value="resources/test_data/mapTransaction/test_data/MT12/orderLine2.properties" />
+						<entry key="InsertTravelerAccountRewardOrderLine3"
+							value="resources/test_data/mapTransaction/test_data/MT12/orderLine3.properties" />
+
+						<entry key="InsertItinerary1" value="" />
+
+					</map>
+				</entry>
+			</map>
+		</property>
+
+		<property name="insertionLinkedTables">
+			<map>
+				<entry key="CreateReserveCpnRequest1">
+					<map>
+						<entry key="TravelAccountID" value="InsertTraveler1" />
+						<entry key="TravelUserID" value="InsertTraveler2" />
+						<entry key="CouponInstanceID" value="InsertTravelerAccountReward1" />
+					</map>
+				</entry>
+
+				<entry key="CreateMapTransactionRequest1">
+					<map>
+						<entry key="TravelAccountID" value="InsertTraveler1" />
+						<entry key="TravelUserID" value="InsertTraveler2" />
+						<entry key="OrderLineTable1" value="InsertTravelerAccountRewardOrderLine1" />
+						<entry key="OrderLineTable2" value="InsertTravelerAccountRewardOrderLine2" />
+						<entry key="OrderLineTable3" value="InsertTravelerAccountRewardOrderLine3" />
+						<entry key="TRL" value="InsertItinerary1" />
+					</map>
+				</entry>
+
+				<entry key="InsertTravelerAccount1">
+					<map>
+						<entry key="InsertTraveler" value="InsertTraveler1" />
+					</map>
+				</entry>
+				<entry key="InsertTravelerAccount2">
+					<map>
+						<entry key="InsertTraveler" value="InsertTraveler2" />
+					</map>
+				</entry>
+				<entry key="InsertTravelerAccount3">
+					<map>
+						<entry key="InsertTraveler" value="InsertTraveler3" />
+					</map>
+				</entry>
+
+				<entry key="InsertTravelerAccountReward1">
+					<map>
+						<entry key="InsertTravelerAccount" value="InsertTravelerAccount1" />
+						<entry key="UpdateTUID" value="InsertTraveler2" />
+						<entry key="InsertHotelReward" value="InsertHotelReward1" />
+					</map>
+				</entry>
+
+				<entry key="InsertItinerary1">
+					<map>
+						<entry key="InsertTravelerAccount" value="InsertTravelerAccount1" />
+					</map>
+				</entry>
+
+				<entry key="InsertTravelerAccountRewardOrderLine1">
+					<map>
+						<entry key="InsertTravelerAccountReward" value="InsertTravelerAccountReward1" />
+					</map>
+				</entry>
+				<entry key="InsertTravelerAccountRewardOrderLine2">
+					<map>
+						<entry key="InsertTravelerAccountReward" value="InsertTravelerAccountReward1" />
+					</map>
+				</entry>
+				<entry key="InsertTravelerAccountRewardOrderLine3">
+					<map>
+						<entry key="InsertTravelerAccountReward" value="InsertTravelerAccountReward1" />
+					</map>
+				</entry>
+			</map>
+		</property>
+
+	</bean>
+</beans>

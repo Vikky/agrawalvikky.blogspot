@@ -1,7 +1,6 @@
 /**
  * QuickSortPracticePractice.java
  * 
- * @author vikky.agrawal
  */
 package SortingTechniques;
 
@@ -10,6 +9,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author vikky.agrawal
+ *
+ */
 public class QuickSortPractice {
 
 	int[] arr;
