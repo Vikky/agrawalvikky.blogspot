@@ -1,12 +1,13 @@
 /**
- * @author Vikky.Agrawal
  * Link List operations and solutions to few problems
+ * 
+ * @author vikky.agrawal
+ * 
  */
 
 public class LinkedList {
 
 	Node node = null;
-	
 
 	public static void main(String[] args) {
 
@@ -23,32 +24,25 @@ public class LinkedList {
 			add(node, (int) (Math.random() * 100));
 		}
 
-		/*System.out.println("Test: iterative, List before reversal"); 
-		print(node);
-		this.node=reverse(node); 
-	
-		
-		System.out.println("Test: recursive, List before reversal");
-		print(node);
-		this.node=this.recursiveReverse(node);
-		System.out.println("After recursice reverse list is : ");
-		print(node);
-		
-		*/
-		
-		
+		/*
+		 * System.out.println("Test: iterative, List before reversal");
+		 * print(node); this.node=reverse(node);
+		 * 
+		 * 
+		 * System.out.println("Test: recursive, List before reversal");
+		 * print(node); this.node=this.recursiveReverse(node);
+		 * System.out.println("After recursice reverse list is : ");
+		 * print(node);
+		 */
+
 		this.rotateACW(node, 8);
-			
 
 	}
 
-	
-	
 	/*
-	 * Reverse a linked list iterative.
-	 * Using auxiliary pointers.
+	 * Reverse a linked list iterative. Using auxiliary pointers.
 	 */
-	
+
 	public Node reverse(Node ptr) {
 
 		if (ptr == null) {
@@ -66,19 +60,17 @@ public class LinkedList {
 			ptr3 = ptr2;
 
 		}
-		ptr1.setLink(ptr2); //setting link for the last node;
+		ptr1.setLink(ptr2); // setting link for the last node;
 
 		System.out.println("Reversed List :");
 		this.print(ptr1);
 		return ptr1;
 	}
-	
+
 	/*
-	 * RecursiveReverse() 
-	 * Use cases:
-	 * What is the reverse of null (the empty list)? null.
-	 * What is the reverse of a one element list? the element. 
-	 * What is the reverse of an n element list? the reverse of the second element on
+	 * RecursiveReverse() Use cases: What is the reverse of null (the empty
+	 * list)? null. What is the reverse of a one element list? the element. What
+	 * is the reverse of an n element list? the reverse of the second element on
 	 * followed by the first element.
 	 */
 
@@ -92,7 +84,8 @@ public class LinkedList {
 
 		Node temp = recursiveReverse(root.getLink());
 
-		// temp contains last element when recursion done; ie. temp always points to last node while recursion done and returned
+		// temp contains last element when recursion done; ie. temp always
+		// points to last node while recursion done and returned
 		// take 2/3 nodes and dry-run
 
 		root.getLink().setLink(root);
@@ -100,23 +93,21 @@ public class LinkedList {
 		return temp;
 
 	}
-	
-	/*
-	 *  Print reverse of the link list 
-	 *  reccursively
-	 */
-	
-	public void printReverseRecursive(Node root){
 
-		if(root.getLink()!=null){
+	/*
+	 * Print reverse of the link list reccursively
+	 */
+
+	public void printReverseRecursive(Node root) {
+
+		if (root.getLink() != null) {
 			printReverseRecursive(root.getLink());
 			System.out.println(root.getData());
-		}else{
+		} else {
 			System.out.println(root.getData());
 		}
 	}
-	
-	
+
 	public void printNthFromLast(Node root, int n) {
 
 		int i = n;
@@ -192,20 +183,20 @@ public class LinkedList {
 
 	public void rotateACW(Node root, int n) {
 
-		if (root == null || n<=0) {
+		if (root == null || n <= 0) {
 			return;
 		}
 
-		int size=size(root);
-		if(n==size){
-			//no need to rotate, as it will be the same
+		int size = size(root);
+		if (n == size) {
+			// no need to rotate, as it will be the same
 			System.out.println("List after rotating");
 			print(root);
-			return;			
+			return;
 		}
-		
+
 		if (n > size) {
-			n=n%size;
+			n = n % size;
 		}
 
 		System.out.println("List Before rotating");
@@ -315,42 +306,37 @@ public class LinkedList {
 		print(node);
 	}
 
-	
 	/*
-	 * Given a singly linked list, swap every two nodes
-	 * e.g. 1->2->3->4->5->6 should become 2->1->4->3->6->5
+	 * Given a singly linked list, swap every two nodes e.g. 1->2->3->4->5->6
+	 * should become 2->1->4->3->6->5
 	 */
-	
-	public void swap(Node root){
-		
-		if(root == null){
+
+	public void swap(Node root) {
+
+		if (root == null) {
 			return;
 		}
-		
+
 		System.out.println("before swap : ");
 		print(root);
-		
-		
-		Node temp=root;
-		while(temp!=null && temp.getLink()!=null){
-			int data=temp.getData();
+
+		Node temp = root;
+		while (temp != null && temp.getLink() != null) {
+			int data = temp.getData();
 			temp.setData(temp.getLink().getData());
 			temp.getLink().setData(data);
-			temp=temp.getLink().getLink();
+			temp = temp.getLink().getLink();
 		}
 		System.out.println("After swap");
 		print(root);
-		
-		
+
 	}
-	
-	
+
 	/*
-	 * You are given a pointer to a node in a singly linked list.
-	 *  Delete that node from the linked list. 
-	 *  Pointer to previous node is not available.
+	 * You are given a pointer to a node in a singly linked list. Delete that
+	 * node from the linked list. Pointer to previous node is not available.
 	 */
-	
+
 	public void deleteNodePointer(Node pointer) {
 		if (pointer == null) {
 			return;
@@ -364,15 +350,11 @@ public class LinkedList {
 		}
 		// otherwise
 		else {
-			//indicate that the node is deleted
+			// indicate that the node is deleted
 			pointer.setData(-1);
 		}
 	}
-	
-	
-	
-	
-	
+
 	/*
 	 * Helper functions for LinkedList
 	 */
@@ -417,42 +399,38 @@ public class LinkedList {
 		return i;
 	}
 
-	
-	
-	
-	
 	/*
 	 * static inner class for LinkedList Data Structure
 	 */
-	private static class Node{
-		 private int data;
-		 private Node link; 		 
-		    
-		    Node(){
-		    	    	
-		    }
-		    
-		    Node(int data){
-		    	//mergedList=new Node();
-		        this.setData(data);
-		        this.setLink(null);       
-		    }
-		    
-		    public int getData(){
-		        return this.data;
-		    }
-		      
-		    public Node getLink(){
-		        return this.link;
-		    }
-		    
-		    public void setData(int data){
-		        this.data=data;
-		    }       
-		    
-		    public void setLink(Node link){
-		        this.link=link;
-		    }  
+	private static class Node {
+		private int data;
+		private Node link;
+
+		Node() {
+
+		}
+
+		Node(int data) {
+			// mergedList=new Node();
+			this.setData(data);
+			this.setLink(null);
+		}
+
+		public int getData() {
+			return this.data;
+		}
+
+		public Node getLink() {
+			return this.link;
+		}
+
+		public void setData(int data) {
+			this.data = data;
+		}
+
+		public void setLink(Node link) {
+			this.link = link;
+		}
 	}
-	
+
 }

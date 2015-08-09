@@ -11,6 +11,7 @@
  * To avoid this sort of deadlock when locking multiple resources, all threads
  * should always acquire their locks in the same order.
  **/
+
 public class DeadLock {
   public static void main(String[] args){
     //These are the two resource objects 

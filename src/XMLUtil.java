@@ -70,13 +70,15 @@ public class XMLUtil {
 					|| line.trim().matches("<entry key=\"InsertTravelerAccount[0-9]*\">")
 					|| line.trim().matches("<entry key=\"InsertTraveler[0-9]*\" >") 
 					|| line.trim().matches("<entry key=\"InsertTravelerAccount[0-9]*\" >")
-					|| line.trim().matches("<entry key=\"InsertItinerary[0-9]*\"")
+					|| line.trim().matches("<entry key=\"InsertItinerary[0-9]*\"([\\s]*value=\"\"[\\s]*/>)")
 					) {
+				System.out.println("Found line");
 				flag=true;
 				
 			} else if (flag && line.trim().endsWith("</entry>")) {
 				flag = false;
 			} else if (!flag) {
+				//System.out.println("Adding line");
 				outlines.add(line);
 				flag=false;
 			}
@@ -85,7 +87,7 @@ public class XMLUtil {
 		for(String line : outlines) {
 			if(			line.trim().matches("<entry key=\"InsertTraveler[0-9]*\"") 
 					|| 	line.trim().matches("<entry key=\"InsertTravelerAccount[0-9]*\"") 
-					||  line.trim().matches("<entry key=\"InsertItinerary[0-9]*\"([\\s]*value=\"\")")) {
+					||  line.trim().matches("<entry key=\"InsertItinerary[0-9]*\"")) {
 				flag=true;
 				if(line.trim().endsWith("/>")) {
 					flag=false;
