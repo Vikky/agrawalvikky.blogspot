@@ -8,8 +8,8 @@ public class RightDownPaths {
 	int length;
 
 	RightDownPaths() {
-		arr = new int[4][4];
 		this.length = 4;
+		arr = new int[length][length];
 	}
 
 	/**
@@ -29,18 +29,21 @@ public class RightDownPaths {
 		System.out.println("initial array :");
 		printArray(arr);
 
-		int m = length - 1;
+		int length_ = length - 1;
 
-		arr[m][m] = 0;
+		arr[length_][length_] = 0;
 
+		// Initialize last row and column with 1.
 		for (int k = 0; k < length; k++) {
-			arr[k][m] = 1;
-			arr[m][k] = 1;
+			arr[k][length_] = 1;
+			arr[length_][k] = 1;
 		}
 
-		for (int i = m - 1; i >= 0; i--) {
-			for (int j = m - 1; j >= 0; j--) {
-				arr[i][j] = arr[i + 1][j] + arr[i][j + 1];
+		//Building array from bottom to top
+		for (int row = length_ - 1; row >= 0; row--) {
+			for (int column = length_ - 1; column >= 0; column--) {
+				arr[row][column] = arr[row][column + 1] + arr[row + 1][column];
+				//Total paths = 	paths(right)		+   paths(down)
 			}
 		}
 		System.out.println("Array after processing");
@@ -53,10 +56,10 @@ public class RightDownPaths {
 	}
 
 	public void printArray(int[][] arr) {
-		int m = length;
+		int length_ = length;
 
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < m; j++) {
+		for (int i = 0; i < length_; i++) {
+			for (int j = 0; j < length_; j++) {
 				System.out.print(arr[i][j] + " ");
 			}
 			System.out.println(" ");
