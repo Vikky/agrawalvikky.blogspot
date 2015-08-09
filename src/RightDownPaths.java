@@ -58,9 +58,9 @@ public class RightDownPaths {
 	public void printArray(int[][] arr) {
 		int length_ = length;
 
-		for (int i = 0; i < length_; i++) {
-			for (int j = 0; j < length_; j++) {
-				System.out.print(arr[i][j] + " ");
+		for (int row = 0; row < length_; row++) {
+			for (int column = 0; column < length_; column++) {
+				System.out.print(arr[row][column] + " ");
 			}
 			System.out.println(" ");
 		}
