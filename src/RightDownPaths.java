@@ -1,5 +1,5 @@
 /**
- * @author Vikky.Agrawal
+ * @author vikky.agrawal
  *
  */
 public class RightDownPaths {
