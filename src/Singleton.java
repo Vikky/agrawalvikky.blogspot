@@ -2,8 +2,7 @@ import java.lang.reflect.Constructor;
 
 /**
  * @author vikky.agrawal
- * @see http
- *      ://stackoverflow.com/questions/20421920/what-are-the-different-ways-we
+ * @see http://stackoverflow.com/questions/20421920/what-are-the-different-ways-we
  *      -can-break-a-singleton-pattern-in-java
  */
 
@@ -54,9 +53,9 @@ public class Singleton {
 
 		Singleton s = Singleton.getSingleton();
 
-		Class clazz = Singleton.class;
+		Class<Singleton> clazz = Singleton.class;
 
-		Constructor cons = clazz.getDeclaredConstructor();
+		Constructor<Singleton> cons = clazz.getDeclaredConstructor();
 		cons.setAccessible(true);
 
 		Singleton s2 = (Singleton) cons.newInstance();
