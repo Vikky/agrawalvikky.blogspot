@@ -208,8 +208,4 @@ public class BST {
         this.left=left;
     }  
 }
-	
-	
-	
-	
 }

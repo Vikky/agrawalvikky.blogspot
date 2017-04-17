@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 
 public class Singleton {
 
-	private static Singleton single_instance;
+	private volatile static Singleton single_instance;
 
 	private Singleton() {
 		// preventing reflection

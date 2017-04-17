@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +18,10 @@ public class Main {
 		new MainTest();*/
 		
 	//	new MainTest();
+
+
+		System.out.println("5F:7C:83:AD:FB:FC:4F:6B:12:A5:3E:2A:73:2E:40:BE:27:87:D2:55".replaceAll(":"," "));
+
 		
 		String s1="abc";
 		String s2="abc";
@@ -63,9 +68,57 @@ public class Main {
 	        }
 	        
 		System.out.println("after conversion : "+string);*/
+		Integer b1 = new Integer(5); 
+		int b2 = 5; 
+		boolean b =compareObjects(b1, b2);
+		System.out.println("B comes out to be :"+b);
+		
+		
+		
+		String typeData="{couponID:34,\"travelProductIDs\":[25],\"delete\":false}";
+		
+		System.out.println("String before conversion :"+typeData);
+		
+		//typeData=typeData.replaceFirst("[0-9]+", "123");
+		
+		
+		int iterate = 2;
+		Long id_EventData[] = new Long[iterate];
+		Pattern pattern = Pattern.compile("[-?0-9]+");
+		Matcher matcher = pattern.matcher(typeData);
+
+		while (matcher.find() && iterate >0 ) {
+			iterate--;
+			try{
+				id_EventData[iterate] = Long.parseLong(matcher.group());
+			}catch(NumberFormatException nfe){
+				System.out.println("number format exception occured");
+			}
+						
+		}
+		
+		for(Long split : id_EventData){
+			System.out.println("spliittteedd : "+split);
+		}
+		
+		
+		System.out.println("String after conversion : "+typeData);
 		
 		
 	}
+	
+	
+	private static  boolean compareObjects(Object str1, Object str2){
+		if ((str1 != null && str2 != null) && (!str1.equals(str2))) {
+			return true;
+		} else if ((str1 != null && str2 == null)
+				|| (str1 == null && str2 != null)) {
+			return true;
+		}
+		return false;
+	}
+	
+	
 	
 }
 
@@ -138,3 +191,7 @@ class B extends A{
 	
 	
 }
+
+
+
+

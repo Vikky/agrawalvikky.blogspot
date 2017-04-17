@@ -60,7 +60,6 @@ public class BubbleSort {
 				break;
 			}			
 		}
-		
 	}
 	
 	public void printArray(){
