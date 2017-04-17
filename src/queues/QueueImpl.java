@@ -1,3 +1,5 @@
+package queues;
+
 /**
  * @author Vikky.Agrawal
  * Queue operations and solutions to few problems

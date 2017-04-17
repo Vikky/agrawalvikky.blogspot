@@ -1,3 +1,5 @@
+package lists;
+
 /**
  * Link List operations and solutions to few problems
  * 
@@ -356,7 +358,7 @@ public class LinkedList {
 	}
 
 	/*
-	 * Helper functions for LinkedList
+	 * Helper functions for lists.LinkedList
 	 */
 	public void add(Node ptr, int data) {
 		if (ptr == null) {
@@ -400,7 +402,7 @@ public class LinkedList {
 	}
 
 	/*
-	 * static inner class for LinkedList Data Structure
+	 * static inner class for lists.LinkedList Data Structure
 	 */
 	private static class Node {
 		private int data;

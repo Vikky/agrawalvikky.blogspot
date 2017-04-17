@@ -1,3 +1,5 @@
+package lists;
+
 /**
  * @author Vikky.Agrawal
  * DS to use for Link List
@@ -13,7 +15,7 @@ public class LinkNode {
 	    }
 	    
 	    LinkNode(int data){
-	    	//mergedList=new LinkNode();
+	    	//mergedList=new lists.LinkNode();
 	        this.setData(data);
 	        this.setLink(null);       
 	    }
