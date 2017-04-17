@@ -1,5 +1,5 @@
-/**
- * MorrisTraversal.java
+package trees; /**
+ * trees.MorrisTraversal.java
  *
  */
 
@@ -58,7 +58,7 @@ public class MorrisTraversal {
 		}
 	}
 
-	// Insertion as BST
+	// Insertion as trees.BST
 	public void insert(TreeNode root, int val) {
 		if (root == null) {
 			root = new TreeNode(val);

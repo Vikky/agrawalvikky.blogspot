@@ -1,3 +1,5 @@
+package trees;
+
 import java.util.Queue;
 import java.util.Stack;
 
@@ -63,7 +65,7 @@ public class TreeTraversal {
 		 this.DFS(root);
 	}
 
-	// BST insertion
+	// trees.BST insertion
 	public void insert(TreeNode root, int val) {
 		if (root == null) {
 			root = new TreeNode(val);
@@ -279,7 +281,7 @@ public class TreeTraversal {
 
 	
 	/*
-	 * Breadth first search tree traversal -- implementation for BST/BT
+	 * Breadth first search tree traversal -- implementation for trees.BST/BT
 	 * V= no of vertices, e=no of edges
 	 * O(v+e)
 	 * if e=v^2 then complexity will be O(v^2) 
@@ -308,7 +310,7 @@ public class TreeTraversal {
 	
 	
 	/*
-	 * Depth first search tree traversal(DFS) -- implementation for BST/BT
+	 * Depth first search tree traversal(DFS) -- implementation for trees.BST/BT
 	 * V= no of vertices, e=no of edges
 	 * O(v+e)
 	 * if e=v^2 then complexity will be O(v^2) 

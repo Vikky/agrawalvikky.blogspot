@@ -1,3 +1,4 @@
+package trees;
 
 public class Tree {
 
@@ -18,7 +19,7 @@ public class Tree {
 	  public void run() {
 	    // build the simple tree from chapter 11.
 	    Node root = new Node(5);
-	    System.out.println("Binary Tree Example");
+	    System.out.println("Binary trees.Tree Example");
 	    System.out.println("Building tree with root value " + root.value);
 	    insert(root, 1);
 	    insert(root, 8);

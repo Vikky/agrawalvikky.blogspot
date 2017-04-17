@@ -1,3 +1,5 @@
+package trees;
+
 /**
  * @author vikky.agrawal
  * 
@@ -40,7 +42,7 @@ public class VerifyBST {
 
 		inorder(root);
 
-		System.out.println("Whether this tree is BST? :  "
+		System.out.println("Whether this tree is trees.BST? :  "
 				+ checkBST(root, MIN, MAX));
 	}
 

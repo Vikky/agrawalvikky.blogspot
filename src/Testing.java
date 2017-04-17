@@ -91,8 +91,8 @@ public class Testing {
 	
 
 	
-	//Helper functions for Tree.	
-	// BST insertion
+	//Helper functions for trees.Tree.
+	// trees.BST insertion
 	public void insert(TreeNode root, int val) {
 		if (root == null) {
 			root = new TreeNode(val);
