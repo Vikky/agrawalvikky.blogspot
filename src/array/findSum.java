@@ -1,7 +1,7 @@
 package array;
 
 /**
- * Program to find whether sum of 2 numbers equals to a given no in a sorted
+ * Program to find whether sum of 2 numbers equals to a given no in an
  * array
  *
  * @author vikky.agrawal
