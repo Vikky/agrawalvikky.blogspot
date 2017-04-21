@@ -188,9 +188,9 @@ public class BST
 	/*
 	 * public boolean array.findSum(TreeNode root, int val){ if(root!=null){
 	 * 
-	 * //traverse only left if root.data-val <=0 if(val-root.getData() <= 0){
+	 * //traverse only left if root.value-val <=0 if(val-root.getData() <= 0){
 	 * return array.findSum(root.getLeft(), val); }else { //scenario 1: when
-	 * root.data-val < root.data if(val-root.getData() < root.getData()){
+	 * root.value-val < root.value if(val-root.getData() < root.getData()){
 	 * if(find(root.getLeft(),val-root.getData())){ return true; }else{ return
 	 * array.findSum(root.getLeft(), val); } } //scenario 2: traversing to the right.
 	 * else{ if(find(root.getRight(),val-root.getData())){ return true; }else{

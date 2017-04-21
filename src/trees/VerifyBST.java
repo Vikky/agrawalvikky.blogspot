@@ -2,29 +2,31 @@ package trees;
 
 /**
  * @author vikky.agrawal
- * 
  */
 
-public class VerifyBST {
-
+public class VerifyBST
+{
 	private TreeNode root;
 
 	private static final int MIN = Integer.MIN_VALUE;
 	private static final int MAX = Integer.MAX_VALUE;
 
-	public VerifyBST() {
+	public VerifyBST()
+	{
 		root = new TreeNode(4);
 	}
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		VerifyBST obj = new VerifyBST();
 		obj.operate();
 	}
 
-	public void operate() {
+	public void operate()
+	{
 
 		// let's construct a random binary tree
 		// 4
@@ -41,24 +43,22 @@ public class VerifyBST {
 		root.getLeft().setRight(new TreeNode(6));
 
 		inorder(root);
-
-		System.out.println("Whether this tree is trees.BST? :  "
-				+ checkBST(root, MIN, MAX));
+		System.out.println("Whether this tree is trees.BST? :  " + checkIfBST(root, MIN, MAX));
 	}
 
 	// Duplicates are not handled in given function.
 
-	public boolean checkBST(TreeNode root, int MIN, int MAX) {
-
-		if (root == null) {
+	public boolean checkIfBST(TreeNode root, int MIN, int MAX)
+	{
+		if (root == null)
+		{
 			return true;
 		}
 
-		if (root.getData() > MIN && root.getData() < MAX) {
-			return checkBST(root.getLeft(), MIN, root.getData())
-					&& checkBST(root.getRight(), root.getData(), MAX);
+		if (root.getData() > MIN && root.getData() < MAX)
+		{
+			return checkIfBST(root.getLeft(), MIN, root.getData()) && checkIfBST(root.getRight(), root.getData(), MAX);
 		}
-
 		return false;
 	}
 
@@ -76,42 +76,51 @@ public class VerifyBST {
 	}
 
 	// DS for tree
-	private static class TreeNode {
+	static class TreeNode
+	{
 
 		private int data;
 		private TreeNode right;
 		private TreeNode left;
 
-		TreeNode() {
+		TreeNode()
+		{
 		}
 
-		TreeNode(int data) {
+		TreeNode(int data)
+		{
 			this.setData(data);
 			this.setLeft(null);
 			this.setRight(null);
 		}
 
-		public int getData() {
+		public int getData()
+		{
 			return this.data;
 		}
 
-		public TreeNode getRight() {
+		public TreeNode getRight()
+		{
 			return this.right;
 		}
 
-		public TreeNode getLeft() {
+		public TreeNode getLeft()
+		{
 			return this.left;
 		}
 
-		public void setData(int data) {
+		public void setData(int data)
+		{
 			this.data = data;
 		}
 
-		public void setRight(TreeNode right) {
+		public void setRight(TreeNode right)
+		{
 			this.right = right;
 		}
 
-		public void setLeft(TreeNode left) {
+		public void setLeft(TreeNode left)
+		{
 			this.left = left;
 		}
 	}
