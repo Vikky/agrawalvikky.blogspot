@@ -11,7 +11,7 @@ public class FindMaxProfit
 		int arr[] = {100, 80, 260, 310, 40, 535, 695};
 		printMaxProfitPairs(arr);
 
-		int[] anotherArr = {23, 13, 25 ,29 ,33 ,19 ,34, 45, 65, 67};
+		int[] anotherArr = {1, 5, 2, 3, 7, 6, 4, 5};
 		printMaxProfitPairs(anotherArr);
 
 	}
@@ -39,5 +39,4 @@ public class FindMaxProfit
 		}
 		System.out.println("Total profit :"+totalProfit);
 	}
-
 }

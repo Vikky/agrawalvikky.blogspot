@@ -1,4 +1,4 @@
-package SortingTechniques;
+package sorting;
 
 
 /**

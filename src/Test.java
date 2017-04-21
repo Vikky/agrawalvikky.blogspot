@@ -17,6 +17,10 @@ public class Test{
 		System.out.println("long value : "+bd.longValue());
 		
 		System.out.println("A9a989".matches("[\\p{IsAlphabetic}\\p{IsDigit}]+$"));
+
+
+		System.out.println(1%5);
+
 	}
 	
 }

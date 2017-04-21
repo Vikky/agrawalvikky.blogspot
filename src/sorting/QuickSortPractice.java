@@ -2,7 +2,7 @@
  * QuickSortPracticePractice.java
  * 
  */
-package SortingTechniques;
+package sorting;
 
 import java.io.IOException;
 import java.nio.file.Path;
