@@ -39,7 +39,6 @@ public class LeastCommonAncestor
 
 		findLCARecursive(root, 5, 8);
 		findLCAIterative(root, 5, 8);
-
 	}
 
 	private static Node findLCARecursive(Node root, int first, int second)
@@ -104,5 +103,4 @@ public class LeastCommonAncestor
 			printInOrder(node.right);
 		}
 	}
-
 }
