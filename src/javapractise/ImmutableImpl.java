@@ -1,3 +1,5 @@
+package javapractise;
+
 import java.util.Date;
 
 /*

@@ -1,3 +1,5 @@
+package javapractise;
+
 import java.lang.reflect.Constructor;
 
 /**
@@ -14,9 +16,9 @@ public class Singleton {
 		// preventing reflection
 		if (single_instance != null) {
 			throw new IllegalStateException(
-					"Singleton instance already created.");
+					"java.Singleton instance already created.");
 		}
-		System.out.println("Singleton constructor running");
+		System.out.println("java.Singleton constructor running");
 
 	}
 
@@ -113,7 +115,7 @@ class SingletonStatic {
 	private static SingletonStatic instance = new SingletonStatic();
 
 	private SingletonStatic() {
-		System.out.println("Singleton(): Initializing Instance");
+		System.out.println("java.Singleton(): Initializing Instance");
 	}
 
 	public static SingletonStatic getInstance() {

@@ -1,3 +1,5 @@
+package javapractise;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,7 +25,7 @@ class Dog extends Animal implements Serializable {
 		this.k = k;
 	}
 
-	 static int j = 9;
+	static int j = 9;
 	private int k;
 
 	public int getK() {
@@ -66,7 +68,8 @@ public class SerializeTest{
 	public static void main(String[] args) {
 
 		Dog d = new Dog("Fido", 35);
-		d.j=10;
+		Dog deserialized = null;
+		Dog.j=10;
 		System.out.println("before: " + d.getName() + " " + d.getK());
 		try {
 			FileOutputStream fs = new FileOutputStream("testSer.ser");
@@ -79,12 +82,12 @@ public class SerializeTest{
 		try {
 			FileInputStream fis = new FileInputStream("testSer.ser");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			d = (Dog) ois.readObject();
+			deserialized = (Dog) ois.readObject();
 			ois.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("after: " + d.getName() + " " + d.getK()+"static variable :"+d.j);
+		System.out.println("after: " + d.getName() + " " + d.getK()+" static variable :"+deserialized.j);
 
 	}
 

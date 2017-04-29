@@ -2,6 +2,8 @@ package trees;
 
 import java.util.Stack;
 
+import static java.lang.Math.max;
+
 /**
  * @author vikky.agrawal
  */
@@ -41,6 +43,9 @@ public class BST
 		postOrder(root);
 
 		System.out.println("Find whether sum=12 exists in tree : " + findSum(root, 12));
+
+
+		System.out.println("Height of tree : "+getHeight(root));
 
 	}
 
@@ -184,6 +189,16 @@ public class BST
 			}
 		}
 	}
+
+	//Height of binary tree
+	private int getHeight(TreeNode root)
+	{
+		if (root == null)
+			return 0;
+
+		return 1+ max(getHeight(root.left), getHeight(root.right));
+	}
+
 
 	/*
 	 * public boolean array.findSum(TreeNode root, int val){ if(root!=null){
