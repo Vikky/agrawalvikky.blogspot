@@ -1,4 +1,4 @@
-package javapractise;
+package javapractice;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -27,6 +27,10 @@ class Dog extends Animal implements Serializable {
 
 	static int j = 9;
 	private int k;
+
+	// If you define any data member as transient, it will not be serialized.
+
+	transient int notSerialized= 10;
 
 	public int getK() {
 		return k;
@@ -68,6 +72,7 @@ public class SerializeTest{
 	public static void main(String[] args) {
 
 		Dog d = new Dog("Fido", 35);
+		d.notSerialized = 100;
 		Dog deserialized = null;
 		Dog.j=10;
 		System.out.println("before: " + d.getName() + " " + d.getK());
@@ -87,8 +92,8 @@ public class SerializeTest{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("after: " + d.getName() + " " + d.getK()+" static variable :"+deserialized.j);
-
+		System.out.println("after: " + deserialized.getName() + " " + deserialized.getK()+" static variable :"+deserialized.j);
+		System.out.println("notSerialized : "+deserialized.notSerialized);
 	}
 
 }

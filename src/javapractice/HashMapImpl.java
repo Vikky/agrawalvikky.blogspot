@@ -1,4 +1,4 @@
-package javapractise;
+package javapractice;
 
 import java.util.HashMap;
 import java.util.TreeMap;

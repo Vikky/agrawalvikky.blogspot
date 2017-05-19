@@ -1,4 +1,4 @@
-package javapractise;
+package javapractice;
 
 import java.lang.reflect.Constructor;
 
@@ -98,7 +98,7 @@ enum SingletonEnum {
 	INSTANCE;
 
 	public void distributePresents() {
-		// elided
+		System.out.println("Singleton instance");
 	}
 
 	/** Demonstrate use of SantaClaus. */

@@ -1,4 +1,4 @@
-package javapractise;
+package javapractice;
 
 /**
  * @author Vikky.Agrawal

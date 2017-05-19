@@ -1,4 +1,4 @@
-package javapractise; /**
+package javapractice; /**
  * Adapted from The Java Tutorial
  * Second Edition by Campione, M. and
  * Walrath, K.Addison-Wesley 1998

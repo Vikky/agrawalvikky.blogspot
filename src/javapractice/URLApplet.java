@@ -1,4 +1,4 @@
-package javapractise;
+package javapractice;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
