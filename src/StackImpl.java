@@ -165,9 +165,7 @@ public class StackImpl {
 	
 	
 	public boolean isEmpty(){
-		if(top==null)
-			return true;
-		return false;
+		return top == null;
 	}
 	
 	

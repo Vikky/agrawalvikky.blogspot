@@ -15,7 +15,7 @@ public class ConcurrencyTest {
 	 */
 	public static void main(String[] args) {
 
-		BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<String>(10);
+		BlockingQueue<String> blockingQueue = new ArrayBlockingQueue<>(10);
 		
 			
 		

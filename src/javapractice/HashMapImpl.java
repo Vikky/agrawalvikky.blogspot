@@ -49,11 +49,7 @@ public class HashMapImpl {
 	public boolean equals(Object o){
 		
 		if(o instanceof HashMapImpl){
-			if(((HashMapImpl) o).getProp().equals(this.getProp())){
-				return true;
-			}else{
-				return false;
-			}
+			return ((HashMapImpl) o).getProp().equals(this.getProp());
 		}		
 		return false;
 	}

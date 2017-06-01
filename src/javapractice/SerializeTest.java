@@ -92,7 +92,7 @@ public class SerializeTest{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("after: " + deserialized.getName() + " " + deserialized.getK()+" static variable :"+deserialized.j);
+		System.out.println("after: " + deserialized.getName() + " " + deserialized.getK()+" static variable :"+ Dog.j);
 		System.out.println("notSerialized : "+deserialized.notSerialized);
 	}
 

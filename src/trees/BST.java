@@ -11,6 +11,7 @@ import static java.lang.Math.max;
 public class BST
 {
 
+	static int k = 3;
 	private TreeNode root;
 
 	BST()
@@ -28,11 +29,12 @@ public class BST
 	{
 
 		System.out.println("Building tree with root value " + root.getData());
-		insert(root, 1);
+		insert(root, 3);
 		insert(root, 8);
 		insert(root, 6);
-		insert(root, 3);
-		insert(root, 9);
+		insert(root, 10);
+		insert(root, 2);
+		insert(root, 4);
 		System.out.println("Traversing tree in in-order");
 		inorder(root);
 
@@ -44,8 +46,9 @@ public class BST
 
 		System.out.println("Find whether sum=12 exists in tree : " + findSum(root, 12));
 
+		System.out.println("Height of tree : " + getHeight(root));
 
-		System.out.println("Height of tree : "+getHeight(root));
+		printKSmallest(root);
 
 	}
 
@@ -196,8 +199,25 @@ public class BST
 		if (root == null)
 			return 0;
 
-		return 1+ max(getHeight(root.left), getHeight(root.right));
+		return 1 + max(getHeight(root.left), getHeight(root.right));
 	}
+
+	private void printKSmallest(TreeNode root)
+	{
+		if (root == null)
+		{
+			k--;
+			return;
+		}
+
+		printKSmallest(root.left);
+		if (k == 0)
+		{
+			System.out.println("kth smallest element " + root.data);
+		}
+		printKSmallest(root.right);
+	}
+
 
 
 	/*

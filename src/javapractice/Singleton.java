@@ -60,7 +60,7 @@ public class Singleton {
 		Constructor<Singleton> cons = clazz.getDeclaredConstructor();
 		cons.setAccessible(true);
 
-		Singleton s2 = (Singleton) cons.newInstance();
+		Singleton s2 = cons.newInstance();
 		System.out.println(s.hashCode());
 		System.out.println(s2.hashCode());
 	}

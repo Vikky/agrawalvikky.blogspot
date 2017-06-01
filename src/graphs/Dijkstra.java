@@ -94,8 +94,8 @@ public class Dijkstra {
 					int weight = Integer.parseInt(tokens[i + 1]);
 					edgeList.add(new Edge(vertex, weight));
 				}
-				vertices[vertex_index++].adjacencies = (Edge[]) (edgeList
-						.toArray(new Edge[edgeList.size()]));
+				vertices[vertex_index++].adjacencies = edgeList
+						.toArray(new Edge[edgeList.size()]);
 
 			}
 		}
