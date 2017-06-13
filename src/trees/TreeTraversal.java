@@ -61,7 +61,7 @@ public class TreeTraversal {
 		 System.out.println("BFS traversal : ");
 		 this.BFS(root);
 		 
-		 System.out.println("\nDFS traversal :");
+		 System.out.println("\nGraphTraversals traversal :");
 		 this.DFS(root);
 	}
 
@@ -310,7 +310,7 @@ public class TreeTraversal {
 	
 	
 	/*
-	 * Depth first search tree traversal(DFS) -- implementation for trees.BST/BT
+	 * Depth first search tree traversal(GraphTraversals) -- implementation for trees.BST/BT
 	 * V= no of vertices, e=no of edges
 	 * O(v+e)
 	 * if e=v^2 then complexity will be O(v^2) 
