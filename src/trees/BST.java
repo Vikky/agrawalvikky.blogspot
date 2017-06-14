@@ -3,6 +3,7 @@ package trees;
 import java.util.Stack;
 
 import static java.lang.Math.max;
+import static java.util.Objects.isNull;
 
 /**
  * @author vikky.agrawal
@@ -52,41 +53,7 @@ public class BST
 
 	}
 
-	public void insert(TreeNode root, int val)
-	{
-		if (root == null)
-		{
-			root = new TreeNode(val);
-			return;
-		}
-		else
-		{
-			if (val < root.getData())
-			{
-				if (root.getLeft() == null)
-				{
-					System.out.println("inserting left to :" + root.getData() + " val : " + val);
-					root.setLeft(new TreeNode(val));
-				}
-				else
-				{
-					insert(root.getLeft(), val);
-				}
-			}
-			else
-			{
-				if (root.getRight() == null)
-				{
-					System.out.println("inserting right to :" + root.getData() + " val : " + val);
-					root.setRight(new TreeNode(val));
-				}
-				else
-				{
-					insert(root.getRight(), val);
-				}
-			}
-		}
-	}
+
 
 	public void inorder(TreeNode root)
 	{
@@ -164,35 +131,6 @@ public class BST
 		return false;
 	}
 
-	public void iterativeInOrder(TreeNode root)
-	{
-		if (root == null)
-		{
-			return;
-		}
-
-		Stack<TreeNode> stack = new Stack<TreeNode>();
-		TreeNode currentNode = root;
-		while (currentNode != null)
-		{
-			if (currentNode.getLeft() != null)
-			{
-				stack.push(currentNode);
-				currentNode = currentNode.getLeft();
-			}
-			else
-			{
-				System.out.println(currentNode.getData());
-				if (!stack.isEmpty() && currentNode.getRight() == null)
-				{
-					currentNode = stack.pop();
-					System.out.println(currentNode.getData());
-				}
-				currentNode = currentNode.getRight();
-			}
-		}
-	}
-
 	//Height of binary tree
 	private int getHeight(TreeNode root)
 	{
@@ -235,6 +173,44 @@ public class BST
 	 * 
 	 * }
 	 */
+
+
+	public void insert(TreeNode root, int val)
+	{
+		if (root == null)
+		{
+			root = new TreeNode(val);
+			return;
+		}
+		else
+		{
+			if (val < root.getData())
+			{
+				if (root.getLeft() == null)
+				{
+					System.out.println("inserting left to :" + root.getData() + " val : " + val);
+					root.setLeft(new TreeNode(val));
+				}
+				else
+				{
+					insert(root.getLeft(), val);
+				}
+			}
+			else
+			{
+				if (root.getRight() == null)
+				{
+					System.out.println("inserting right to :" + root.getData() + " val : " + val);
+					root.setRight(new TreeNode(val));
+				}
+				else
+				{
+					insert(root.getRight(), val);
+				}
+			}
+		}
+	}
+
 
 	//DS for tree
 	private static class TreeNode

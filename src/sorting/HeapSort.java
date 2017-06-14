@@ -14,7 +14,7 @@ public class HeapSort
 
 	HeapSort()
 	{
-		array = new ArrayList<Integer>();
+		array = new ArrayList<>();
 	}
 
 	/**
@@ -57,7 +57,6 @@ public class HeapSort
 
 	public void heapify(ArrayList<Integer> array, int index, int size)
 	{
-
 		int left = this.getLeft(index);
 		int right = this.getRight(index);
 
@@ -114,7 +113,6 @@ public class HeapSort
 
 	public void heapSort()
 	{
-
 		int size = array.size();
 		int index = size - 1;
 
@@ -128,8 +126,7 @@ public class HeapSort
 				this.heapify(array, j, index);
 			}
 
-			index--;
-
+			index--; //ignore indexes which are sorted
 		}
 
 		//Reverse the array for sorted version (runs in linear time)
@@ -145,10 +142,7 @@ public class HeapSort
 		{
 			return (index * 2) + 1;
 		}
-		else
-		{
-			return -1;
-		}
+		return -1;
 	}
 
 	public int getRight(int index)
@@ -157,10 +151,7 @@ public class HeapSort
 		{
 			return (index * 2) + 2;
 		}
-		else
-		{
-			return -1;
-		}
+		return -1;
 	}
 
 	public int getParent(int index)
@@ -171,13 +162,9 @@ public class HeapSort
 			{
 				return (index / 2) - 1;
 			}
-			else
-			{
-				return index / 2;
-			}
+			return index / 2;
 		}
-		else
-			return -1;
+		return -1;
 	}
 
 	public void printArray()
@@ -192,7 +179,6 @@ public class HeapSort
 
 	public boolean isSorted()
 	{
-
 		for (int i = 1; i < array.size(); i++)
 		{
 			if (array.get(i) > array.get(i - 1))
