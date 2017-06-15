@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+import static java.lang.Math.max;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
@@ -33,11 +34,11 @@ public class TreeTraversal
 
 	public void traverse()
 	{
-		System.out.println("Building tree with root value " + root.getData());
+		System.out.println("Building tree with root value " + root.data);
 		for (int i = 0; i < 7; i++)
 			this.insert(root, (int) (Math.random() * 100));
 
-		//		System.out.println("Building tree with root value " + root.getData());
+		//		System.out.println("Building tree with root value " + root.data);
 		//		insert(root, 1);
 		//		insert(root, 8);
 		//		insert(root, 6);
@@ -68,6 +69,12 @@ public class TreeTraversal
 		System.out.println("\n\nIterative reverse-order traversal:   ");
 		iterativeReverseOrder(root);
 
+		System.out.println("\n\nLevel order traversal: recursive  ");
+		levelOrderTraverseRecursive(root);
+
+		System.out.println("\n\nLevel order traversal: iterative   ");
+		levelOrderTraverse(root);
+
 		System.out.println("\n\nSpiral order traversal :");
 		spiralTraversal(root);
 
@@ -86,9 +93,9 @@ public class TreeTraversal
 	{
 		if (root != null)
 		{
-			inorder(root.getLeft());
-			System.out.print(root.getData() + ", ");
-			inorder(root.getRight());
+			inorder(root.left);
+			System.out.print(root.data + ", ");
+			inorder(root.right);
 		}
 	}
 
@@ -160,29 +167,29 @@ public class TreeTraversal
 
 		while (root != null)
 		{
-			if (root.getLeft() == null)
+			if (root.left == null)
 			{
-				System.out.print(root.getData() + ", ");
-				root = root.getRight();
+				System.out.print(root.data + ", ");
+				root = root.right;
 			}
 			else
 			{
-				TreeNode ptr = root.getLeft();
+				TreeNode ptr = root.left;
 
-				while (ptr.getRight() != null && ptr.getRight() != root)
-					ptr = ptr.getRight();
+				while (ptr.right != null && ptr.right != root)
+					ptr = ptr.right;
 
-				if (ptr.getRight() == null)
+				if (ptr.right == null)
 				{
-					ptr.setRight(root);
-					root = root.getLeft();
+					ptr.right = root;
+					root = root.left;
 				}
 
 				else
 				{
-					ptr.setRight(null);
-					System.out.print(root.getData() + ", ");
-					root = root.getRight();
+					ptr.right = null;
+					System.out.print(root.data + ", ");
+					root = root.right;
 				}
 			}
 		}
@@ -196,9 +203,9 @@ public class TreeTraversal
 	{
 		if (root != null)
 		{
-			postOrder(root.getLeft());
-			postOrder(root.getRight());
-			System.out.print(root.getData() + ", ");
+			postOrder(root.left);
+			postOrder(root.right);
+			System.out.print(root.data + ", ");
 
 		}
 	}
@@ -219,31 +226,31 @@ public class TreeTraversal
 		while (currentNode != null)
 		{
 
-			if (currentNode.getLeft() != null)
+			if (currentNode.left != null)
 			{
 				stack.push(currentNode);
-				currentNode = currentNode.getLeft();
+				currentNode = currentNode.left;
 			}
-			else if (currentNode.getRight() != null)
+			else if (currentNode.right != null)
 			{
 				stack.push(currentNode);
-				currentNode = currentNode.getRight();
+				currentNode = currentNode.right;
 			}
 			else
 			{
-				System.out.print(currentNode.getData() + ", ");
+				System.out.print(currentNode.data + ", ");
 
 				// iterate while either right != current node or right is not
 				// null, and stack should not be empty
-				while (!stack.isEmpty() && (stack.peek().getRight() == currentNode || stack.peek().getRight() == null))
+				while (!stack.isEmpty() && (stack.peek().right == currentNode || stack.peek().right == null))
 				{
 					currentNode = stack.pop();
-					System.out.print(currentNode.getData() + ", ");
+					System.out.print(currentNode.data + ", ");
 				}
 
 				if (!stack.isEmpty())
 				{
-					currentNode = stack.peek().getRight();
+					currentNode = stack.peek().right;
 				}
 				else
 				{
@@ -261,9 +268,9 @@ public class TreeTraversal
 	{
 		if (root != null)
 		{
-			System.out.print(root.getData() + ", ");
-			preOrder(root.getLeft());
-			preOrder(root.getRight());
+			System.out.print(root.data + ", ");
+			preOrder(root.left);
+			preOrder(root.right);
 
 		}
 	}
@@ -288,9 +295,9 @@ public class TreeTraversal
 			// stack and shift focus to left sub-tree
 			if (currentNode != null)
 			{
-				System.out.print(currentNode.getData() + ", ");
-				stack.push(currentNode.getRight());
-				currentNode = currentNode.getLeft();
+				System.out.print(currentNode.data + ", ");
+				stack.push(currentNode.right);
+				currentNode = currentNode.left;
 			}
 			else
 			{
@@ -307,16 +314,64 @@ public class TreeTraversal
 	{
 		if (root != null)
 		{
-			reverseorder(root.getRight());
-			System.out.println(root.getData());
-			reverseorder(root.getLeft());
+			reverseorder(root.right);
+			System.out.println(root.data);
+			reverseorder(root.left);
+		}
+	}
+
+	/**
+	 * Level order traversal of tree : iterative
+	 */
+	public void levelOrderTraverse(TreeNode root)
+	{
+		if (isNull(root))
+			return;
+
+		final Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+		TreeNode ptr;
+
+		while (!queue.isEmpty())
+		{
+			ptr = queue.poll();
+			System.out.print(ptr.data + ", ");
+			pushIfNotNull(queue, ptr.left);
+			pushIfNotNull(queue, ptr.right);
+		}
+	}
+
+	/**
+	 * Level order traversal : recursive
+	 * http://www.geeksforgeeks.org/level-order-tree-traversal/
+	 */
+	public void levelOrderTraverseRecursive(TreeNode root)
+	{
+		for (int level = 0; level < getHeight(root); level++)
+		{
+			printNodesAtGivenLevel(root, level);
+		}
+	}
+
+	private void printNodesAtGivenLevel(TreeNode root, int level)
+	{
+		if (isNull(root))
+			return;
+
+		if (level == 0)
+		{
+			System.out.print(root.data + ", ");
+		}
+		else
+		{
+			printNodesAtGivenLevel(root.left, level - 1);
+			printNodesAtGivenLevel(root.right, level - 1);
 		}
 	}
 
 	/**
 	 * Spiral traversal of BT
 	 */
-
 	public void spiralTraversal(TreeNode root)
 	{
 		if (isNull(root))
@@ -326,12 +381,12 @@ public class TreeTraversal
 		final Queue<TreeNode> auxiliaryQueue = new LinkedList<>();
 
 		stack.push(root);
-		System.out.print(root.data+",");
+		System.out.print(root.data + ",");
 		pushIfNotNull(stack, root.right);
 		pushIfNotNull(stack, root.left);
 		boolean flag = false;
 
-		while (!stack.isEmpty() && stack.size()>1)
+		while (!stack.isEmpty() && stack.size() > 1)
 		{
 			while (stack.peek() != root)
 			{
@@ -340,7 +395,7 @@ public class TreeTraversal
 			while (!auxiliaryQueue.isEmpty())
 			{
 				TreeNode ptr = auxiliaryQueue.poll();
-				System.out.print(ptr.data+", ");
+				System.out.print(ptr.data + ", ");
 				if (flag)
 				{
 					pushIfNotNull(stack, ptr.right);
@@ -357,11 +412,35 @@ public class TreeTraversal
 
 	}
 
+	/**
+	 * http://www.techiedelight.com/print-nodes-binary-tree-specific-order/
+	 * bottom up tree print
+	 */
+	//TODO
+	public void printTreeBottomUp(TreeNode root, Stack<TreeNode> left, Stack<TreeNode> right)
+	{
+		if (isNull(root))
+			return;
+
+		final Stack<TreeNode> stack = new Stack<>();
+		final Queue<TreeNode> auxiliaryQueue = new LinkedList<>();
+		TreeNode ptr = root;
+		stack.push(ptr);
+	}
+
 	private void pushIfNotNull(final Stack<TreeNode> stack, final TreeNode node)
 	{
 		if (nonNull(node))
 		{
 			stack.push(node);
+		}
+	}
+
+	private void pushIfNotNull(final Queue<TreeNode> queue, final TreeNode node)
+	{
+		if (nonNull(node))
+		{
+			queue.add(node);
 		}
 	}
 
@@ -378,22 +457,22 @@ public class TreeTraversal
 			return;
 		}
 
-		Queue<TreeNode> queue = new java.util.LinkedList<TreeNode>();
+		Queue<TreeNode> queue = new java.util.LinkedList<>();
 		queue.add(root);
-		System.out.print(root.getData() + " , ");
+		System.out.print(root.data + " , ");
 		while (!queue.isEmpty())
 		{
 
 			TreeNode node = queue.poll();
-			if (node.getLeft() != null)
+			if (node.left != null)
 			{
-				System.out.print(node.getLeft().getData() + " , ");
-				queue.add(node.getLeft());
+				System.out.print(node.left.data + " , ");
+				queue.add(node.left);
 			}
-			if (node.getRight() != null)
+			if (node.right != null)
 			{
-				System.out.print(node.getRight().getData() + " , ");
-				queue.add(node.getRight());
+				System.out.print(node.right.data + " , ");
+				queue.add(node.right);
 			}
 		}
 	}
@@ -418,16 +497,19 @@ public class TreeTraversal
 		while (!stack.isEmpty())
 		{
 			TreeNode node = stack.pop();
-			System.out.print(node.getData() + " , ");
-			if (node.getRight() != null)
-			{
-				stack.push(node.getRight());
-			}
-			if (node.getLeft() != null)
-			{
-				stack.push(node.getLeft());
-			}
+			System.out.print(node.data + " , ");
+			pushIfNotNull(stack, node.right);
+			pushIfNotNull(stack, node.left);
 		}
+	}
+
+	//Height of binary tree
+	private int getHeight(TreeNode root)
+	{
+		if (root == null)
+			return 0;
+
+		return 1 + max(getHeight(root.left), getHeight(root.right));
 	}
 
 	// trees.BST insertion
@@ -440,28 +522,28 @@ public class TreeTraversal
 		}
 		else
 		{
-			if (val < root.getData())
+			if (val < root.data)
 			{
-				if (root.getLeft() == null)
+				if (root.left == null)
 				{
-					System.out.println("inserting left to :" + root.getData() + " val : " + val);
-					root.setLeft(new TreeNode(val));
+					System.out.println("inserting left to :" + root.data + " val : " + val);
+					root.left = new TreeNode(val);
 				}
 				else
 				{
-					insert(root.getLeft(), val);
+					insert(root.left, val);
 				}
 			}
 			else
 			{
-				if (root.getRight() == null)
+				if (root.right == null)
 				{
-					System.out.println("inserting right to :" + root.getData() + " val : " + val);
-					root.setRight(new TreeNode(val));
+					System.out.println("inserting right to :" + root.data + " val : " + val);
+					root.right = new TreeNode(val);
 				}
 				else
 				{
-					insert(root.getRight(), val);
+					insert(root.right, val);
 				}
 			}
 		}
@@ -477,40 +559,11 @@ public class TreeTraversal
 
 		TreeNode(int data)
 		{
-			this.setData(data);
-			this.setLeft(null);
-			this.setRight(null);
-		}
-
-		public int getData()
-		{
-			return this.data;
-		}
-
-		public TreeNode getRight()
-		{
-			return this.right;
-		}
-
-		public TreeNode getLeft()
-		{
-			return this.left;
-		}
-
-		public void setData(int data)
-		{
 			this.data = data;
+			this.left = null;
+			this.right = null;
 		}
 
-		public void setRight(TreeNode right)
-		{
-			this.right = right;
-		}
-
-		public void setLeft(TreeNode left)
-		{
-			this.left = left;
-		}
 	}
 
 }
