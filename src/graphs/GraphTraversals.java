@@ -8,22 +8,21 @@ import java.util.LinkedList;
  */
 public class GraphTraversals
 {
-
 	private int vertices;   // No. of vertices
-	private LinkedList<Integer> adj[]; // Array  of lists for Adjacency List Representation
+	private LinkedList<Integer>[] adjList; // Array  of lists for Adjacency List Representation
 
 	public GraphTraversals(int v)
 	{
 		vertices = v;
-		adj = new LinkedList[v];
+		adjList = new LinkedList[v];
 		for (int i = 0; i < v; ++i)
-			adj[i] = new LinkedList();
+			adjList[i] = new LinkedList();
 	}
 
 	//Function to add an edge into the graph
 	public void addEdge(int v1, int v2)
 	{
-		adj[v1].add(v2);  // Add vertex2 to vertex1's list.
+		adjList[v1].add(v2);  // Add vertex2 to vertex1's adjacency list.
 	}
 
 	public static void main(String[] args)
@@ -31,10 +30,10 @@ public class GraphTraversals
 		GraphTraversals graph = new GraphTraversals(4);
 		/*
 			cyclic graph
-			0->1,2
-			1->2
-			2->0,3
-			3->3
+			[0]->1->2-/
+			[1]->2-/
+			[2]->0->3-/
+			[3]->3-/
 		 */
 
 		graph.addEdge(0, 1);
@@ -64,7 +63,7 @@ public class GraphTraversals
 		while (!queue.isEmpty())
 		{
 			int vertex = queue.pop();
-			Iterator<Integer> iterator = adj[vertex].listIterator();
+			Iterator<Integer> iterator = adjList[vertex].listIterator();
 
 			while (iterator.hasNext())
 			{
@@ -91,7 +90,7 @@ public class GraphTraversals
 		System.out.println("Traversed node : " + startVertex);
 		visited[startVertex] = true;
 
-		Iterator<Integer> iterator = adj[startVertex].listIterator();
+		Iterator<Integer> iterator = adjList[startVertex].listIterator();
 
 		while (iterator.hasNext())
 		{
