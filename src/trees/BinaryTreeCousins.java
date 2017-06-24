@@ -48,7 +48,7 @@ public class BinaryTreeCousins
 
 	public boolean areCousins(final TreeNode root, final int first, final int second)
 	{
-		if (isNull(root) || (isNull(root.left) && isNull(root.right)))
+		if (isNull(root) || (isNull(root.left) || isNull(root.right)))
 			return false;
 
 		final Queue<TreeNode> treeNodes = new LinkedList<>();
@@ -79,7 +79,7 @@ public class BinaryTreeCousins
 				final int other = childWithData.data == first ? second : first;
 				while (!treeNodes.isEmpty())
 				{
-					final TreeNode otherNode = checkIfChildExistsWithData(treeNodes.poll(), other);
+					final TreeNode otherNode = checkIfChildExistsWithData(treeNodes.poll(), other, Integer.MAX_VALUE);
 					if (nonNull(otherNode))
 						return new Pair<>(Boolean.TRUE, Boolean.TRUE);
 				}
@@ -101,11 +101,6 @@ public class BinaryTreeCousins
 		if (nonNull(node.right) && (node.right.data == first || node.right.data == second))
 			return node.right;
 		return null;
-	}
-
-	private TreeNode checkIfChildExistsWithData(final TreeNode node, final int other)
-	{
-		return checkIfChildExistsWithData(node, other, Integer.MAX_VALUE);
 	}
 
 	private void addChildNodes(Queue<TreeNode> queue)
