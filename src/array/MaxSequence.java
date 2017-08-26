@@ -52,8 +52,7 @@ public class MaxSequence
 				end_index = i - 1;
 			}
 			//reset index next to first zero encountered;
-			while (i-- > 0 && arr[i] == 1)
-				;
+			while (i-- > 0 && arr[i] == 1) ;
 		}
 		System.out.println(
 				"Max length sequence found starting : " + start_index + " ending : " + end_index + " having length "

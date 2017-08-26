@@ -31,15 +31,15 @@ public class BinaryTreeHeight
 		System.out.println("isBalanced : " + object.isBalanced(root));
 	}
 
-	public boolean isBalanced(final TreeNode root)
+	public boolean isBalanced(final TreeNode node)
 	{
-		if (isNull(root))
+		if (isNull(node))
 			return true;
 
-		if (getHeight(root.left) - getHeight(root.right) > 1)
+		if (getHeight(node.left) - getHeight(node.right) > 1)
 			return false;
 
-		return isBalanced(root.left) && isBalanced(root.right);
+		return isBalanced(node.left) && isBalanced(node.right);
 	}
 
 	private int getHeight(final TreeNode node)

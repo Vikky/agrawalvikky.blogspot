@@ -40,7 +40,7 @@ class Monitor
 {
 
 	private int value = 0;
-	BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<Integer>(1);
+	final BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(1);
 
 	public void produce()
 	{
