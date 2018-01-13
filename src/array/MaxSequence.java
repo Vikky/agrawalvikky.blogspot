@@ -25,37 +25,39 @@ public class MaxSequence
 	private static void findMaxSequence(int[] arr, final int noOfZeros)
 	{
 		final int length = arr.length;
-		int max_length = 0;
-		int start_index = 0;
-		int end_index = 0;
-		for (int i = 0; i < length; i++)
+		if (arr.length < 0)
+			return;
+
+		int count = noOfZeros;
+		int j = 0;
+		int maxLength = 0;
+		for (int i = 0; i < length; )
 		{
-			int temp_length = 0;
-			int temp_zero = 0;
-			int temp_index = i;
-			while (i < length)
+			while (count >= 0 && j < length)
 			{
-				if (arr[i] == 0)
-				{
-					temp_zero++;
-				}
-				if (temp_zero > noOfZeros)
-					break;
-				temp_length++;
-				i++;
+				if (arr[j] == 0)
+					count--;
+				j++;
+			}
+			int templength = j - i;
+			if (j>=length && arr[j-1]==0)
+			{
+				templength--;
 			}
 
-			if (max_length < temp_length)
+			maxLength = maxLength < (templength) ? (templength) : maxLength;
+			System.out.println("i index : " + i + " j index : " + j + " length : " + maxLength);
+
+			while (i < length && arr[i] != 0 && i < j)
 			{
-				max_length = temp_length;
-				start_index = temp_index;
-				end_index = i - 1;
+				i++;
 			}
-			//reset index next to first zero encountered;
-			while (i-- > 0 && arr[i] == 1) ;
+			i++;
+			if (i < length  && arr[i] == 0)
+			{
+				count++;
+			}
 		}
-		System.out.println(
-				"Max length sequence found starting : " + start_index + " ending : " + end_index + " having length "
-						+ max_length);
+		System.out.println("max sequence : " + maxLength);
 	}
 }
