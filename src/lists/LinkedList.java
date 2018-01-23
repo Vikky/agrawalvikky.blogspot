@@ -10,18 +10,17 @@ public class LinkedList
 {
 
 	Node node = null;
-	Node palindromeRoot =null;
-	Node left =null;
-
+	Node palindromeRoot = null;
+	Node left = null;
 
 	public LinkedList()
 	{
 		this.node = new Node(10);
 		this.palindromeRoot = new Node(1);
-		add(palindromeRoot,2);
-		add(palindromeRoot,3);
-		add(palindromeRoot,2);
-		add(palindromeRoot,1);
+		add(palindromeRoot, 2);
+		add(palindromeRoot, 3);
+		add(palindromeRoot, 2);
+		add(palindromeRoot, 1);
 	}
 
 	public static void main(String[] args)
@@ -29,10 +28,23 @@ public class LinkedList
 		LinkedList list = new LinkedList();
 //		list.operations();
 
-		Node right = list.palindromeRoot;
-		System.out.println("Is palindrome : "+list.isPalindrome(right));
+		//		Node right = list.palindromeRoot;
+		//		System.out.println("Is palindrome : " + list.isPalindrome(right));
+
+		list.testCycle();
 	}
 
+	public void testCycle()
+	{
+		for (int i = 1; i < 6; i++)
+		{
+			add(node,i);
+		}
+		System.out.println(isCycleInList(node));
+		Node temp = node;
+		temp.next.next = node;
+		System.out.println(isCycleInList(node));
+	}
 
 
 	public void operations()
@@ -42,21 +54,43 @@ public class LinkedList
 			add(node, (int) (Math.random() * 100));
 		}
 
-		/*
-		 * System.out.println("Test: iterative, List before reversal");
-		 * print(node); this.node=reverse(node);
-		 * 
-		 * 
-		 * System.out.println("Test: recursive, List before reversal");
-		 * print(node); this.node=this.recursiveReverse(node);
-		 * System.out.println("After recursice reverse list is : ");
-		 * print(node);
-		 */
+		//		System.out.println("Test: iterative, List before reversal");
+		//		print(node);
+		//		this.node = reverse(node);
 
-		this.rotateACW(node, 8);
+		System.out.println("Test: recursive, List before reversal");
+		print(node);
+		this.node = this.recursiveReverse(node);
+		System.out.println("After recursice reverse list is : ");
+		print(node);
+
+		//		this.rotateACW(node, 8);
 
 	}
 
+	public boolean isCycleInList(Node root)
+	{
+		if (root == null)
+			return false;
+
+		Node slowPtr = root;
+		Node fastPtr = root.next;
+
+		while (fastPtr != null)
+		{
+			if (slowPtr == fastPtr || slowPtr == fastPtr.next)
+			{
+				return true;
+			}
+
+			slowPtr = slowPtr.next;
+			if (fastPtr.next != null)
+				fastPtr = fastPtr.next.next;
+			else
+				break;
+		}
+		return false;
+	}
 	/*
 	 * Reverse a linked list iterative. Using auxiliary pointers.
 	 */
@@ -73,15 +107,15 @@ public class LinkedList
 		Node ptr2 = ptr;
 		Node ptr3 = null;
 
-		while (ptr1.getLink() != null)
+		while (ptr1.next != null)
 		{
 			ptr2 = ptr1;
-			ptr1 = ptr1.getLink();
-			ptr2.setLink(ptr3);
+			ptr1 = ptr1.next;
+			ptr2.next = ptr3;
 			ptr3 = ptr2;
 
 		}
-		ptr1.setLink(ptr2); // setting link for the last node;
+		ptr1.next = ptr2; // setting link for the last node;
 
 		System.out.println("Reversed List :");
 		this.print(ptr1);
@@ -100,19 +134,19 @@ public class LinkedList
 
 		// base case
 
-		if (root == null || root.getLink() == null)
+		if (root == null || root.next == null)
 		{
 			return root;
 		}
 
-		Node temp = recursiveReverse(root.getLink());
+		Node temp = recursiveReverse(root.next);
 
 		// temp contains last element when recursion done; ie. temp always
 		// points to last node while recursion done and returned
 		// take 2/3 nodes and dry-run
 
-		root.getLink().setLink(root);
-		root.setLink(null);
+		root.next.next = root;
+		root.next = null;
 		return temp;
 
 	}
@@ -124,31 +158,31 @@ public class LinkedList
 	public void printReverseRecursive(Node root)
 	{
 
-		if (root.getLink() != null)
+		if (root.next != null)
 		{
-			printReverseRecursive(root.getLink());
-			System.out.println(root.getData());
+			printReverseRecursive(root.next);
+			System.out.println(root.data);
 		}
 		else
 		{
-			System.out.println(root.getData());
+			System.out.println(root.data);
 		}
 	}
 
 	private boolean isPalindrome(Node right)
 	{
-		left= palindromeRoot;
+		left = palindromeRoot;
 
 		if (right == null)
 			return true;
 
-		boolean rp = isPalindrome(right.link);
+		boolean rp = isPalindrome(right.next);
 		if (!rp)
 			return false;
 
 		boolean lp = left.data == right.data;
-//		System.out.println("current left : "+left.data + " right is : "+right.data);
-		left = left.link;
+		//		System.out.println("current left : "+left.data + " right is : "+right.data);
+		left = left.next;
 		return lp;
 	}
 
@@ -170,21 +204,21 @@ public class LinkedList
 		Node node = root;
 		Node nodeback = root;
 
-		while ((node.getLink() != null) && (--i > 0))
+		while ((node.next != null) && (--i > 0))
 		{
-			node = node.getLink();
+			node = node.next;
 		}
 
-		if (node.getLink() != null)
+		if (node.next != null)
 		{
-			while (node.getLink() != null)
+			while (node.next != null)
 			{
-				nodeback = nodeback.getLink();
-				node = node.getLink();
+				nodeback = nodeback.next;
+				node = node.next;
 			}
 		}
 
-		System.out.println("N = " + n + " element from last is :" + nodeback.getData());
+		System.out.println("N = " + n + " element from last is :" + nodeback.data);
 
 	}
 
@@ -210,7 +244,7 @@ public class LinkedList
 
 		if (temp)
 		{
-			hare = root.getLink();
+			hare = root.next;
 			tortoise = root;
 		}
 		else
@@ -219,18 +253,18 @@ public class LinkedList
 			tortoise = root;
 		}
 
-		while (hare != null && hare.getLink() != null)
+		while (hare != null && hare.next != null)
 		{
-			hare = hare.getLink().getLink();
-			tortoise = tortoise.getLink();
+			hare = hare.next.next;
+			tortoise = tortoise.next;
 		}
 		if (temp)
 		{
-			System.out.println("Middle elements :" + tortoise.getData() + " and " + tortoise.getLink().getData());
+			System.out.println("Middle elements :" + tortoise.data + " and " + tortoise.next.data);
 		}
 		else
 		{
-			System.out.println("Middle element is :" + tortoise.getData());
+			System.out.println("Middle element is :" + tortoise.data);
 		}
 	}
 
@@ -269,18 +303,18 @@ public class LinkedList
 		while (n-- > 0)
 		{
 			ptr1 = ptr;
-			ptr = ptr.getLink();
+			ptr = ptr.next;
 		}
 
 		Node temp = ptr;
 
-		while (temp.getLink() != null)
+		while (temp.next != null)
 		{
-			temp = temp.getLink();
+			temp = temp.next;
 		}
 
-		temp.setLink(root);
-		ptr1.setLink(null);
+		temp.next = root;
+		ptr1.next = null;
 		root = ptr;
 
 		System.out.println("List after rotating");
@@ -311,37 +345,37 @@ public class LinkedList
 
 		while (list1 != null && list2 != null)
 		{
-			if (list1.getData() < list2.getData())
+			if (list1.data < list2.data)
 			{
-				add(newList, list1.getData());
-				list1 = list1.getLink();
+				add(newList, list1.data);
+				list1 = list1.next;
 			}
-			else if (list1.getData() > list2.getData())
+			else if (list1.data > list2.data)
 			{
-				add(newList, list2.getData());
-				list2 = list2.getLink();
+				add(newList, list2.data);
+				list2 = list2.next;
 			}
 			else
 			{
-				add(newList, list2.getData());
-				list1 = list1.getLink();
-				list2 = list2.getLink();
+				add(newList, list2.data);
+				list1 = list1.next;
+				list2 = list2.next;
 			}
 		}
 
 		while (list1 != null)
 		{
-			add(newList, list1.getData());
-			list1 = list1.getLink();
+			add(newList, list1.data);
+			list1 = list1.next;
 		}
 
 		while (list2 != null)
 		{
-			add(newList, list2.getData());
-			list2 = list2.getLink();
+			add(newList, list2.data);
+			list2 = list2.next;
 		}
 
-		newList = newList.getLink();
+		newList = newList.next;
 		System.out.println("Union of lists:");
 		print(newList);
 
@@ -354,30 +388,25 @@ public class LinkedList
 
 	public void removeDuplicates(Node node)
 	{
-
 		Node root = node;
-
 		if (root == null)
-		{
 			return;
-		}
 
 		System.out.println("Before duplicate removal:");
 		print(root);
 
 		while (root != null)
 		{
-
-			if (root.getData() == root.getLink().getData())
+			if (root.data == root.next.data)
 			{
-				Node ptr = root.getLink();
-				while (ptr != null && ptr.getLink() != null && (ptr.getData() == ptr.getLink().getData()))
+				Node ptr = root.next;
+				while (ptr != null && ptr.next != null && (ptr.data == ptr.next.data))
 				{
-					ptr = ptr.getLink();
+					ptr = ptr.next;
 				}
-				root.setLink(ptr.getLink());
+				root.next = ptr.next;
 			}
-			root = root.getLink();
+			root = root.next;
 		}
 		System.out.println("After duplicate removal");
 		print(node);
@@ -400,12 +429,12 @@ public class LinkedList
 		print(root);
 
 		Node temp = root;
-		while (temp != null && temp.getLink() != null)
+		while (temp != null && temp.next != null)
 		{
-			int data = temp.getData();
-			temp.setData(temp.getLink().getData());
-			temp.getLink().setData(data);
-			temp = temp.getLink().getLink();
+			int data = temp.data;
+			temp.data = temp.next.data;
+			temp.next.data = data;
+			temp = temp.next.next;
 		}
 		System.out.println("After swap");
 		print(root);
@@ -425,22 +454,22 @@ public class LinkedList
 		}
 
 		// in case its not last node
-		if (pointer.getLink() != null)
+		if (pointer.next != null)
 		{
-			pointer.setData(pointer.getLink().getData());
-			pointer.setLink(pointer.getLink().getLink());
+			pointer.data = pointer.next.data;
+			pointer.next = pointer.next.next;
 			return;
 		}
 		// otherwise
 		else
 		{
 			// indicate that the node is deleted
-			pointer.setData(-1);
+			pointer.data = -1;
 		}
 	}
 
 	/*
-	 * Helper functions for lists.LinkedList
+	 * Helper functions for lists.nextedList
 	 */
 	public void add(Node ptr, int data)
 	{
@@ -452,12 +481,12 @@ public class LinkedList
 		else
 		{
 			Node newptr = ptr;
-			while (newptr.getLink() != null)
+			while (newptr.next != null)
 			{
-				newptr = newptr.getLink();
+				newptr = newptr.next;
 			}
-			newptr.setLink(new Node(data));
-			newptr.getLink().setLink(null);
+			newptr.next = new Node(data);
+			newptr.next.next = null;
 		}
 	}
 
@@ -469,10 +498,10 @@ public class LinkedList
 			return;
 		}
 		Node ptr1 = ptr;
-		System.out.print(ptr1.getData() + "->");
-		while ((ptr1 = ptr1.getLink()) != null)
+		System.out.print(ptr1.data + "->");
+		while ((ptr1 = ptr1.next) != null)
 		{
-			System.out.print(ptr1.getData() + "->");
+			System.out.print(ptr1.data + "->");
 		}
 		System.out.println("/n");
 
@@ -487,7 +516,7 @@ public class LinkedList
 		}
 		Node ptr1 = ptr;
 		int i = 1;
-		while ((ptr1 = ptr1.getLink()) != null)
+		while ((ptr1 = ptr1.next) != null)
 		{
 			i++;
 		}
@@ -495,43 +524,22 @@ public class LinkedList
 	}
 
 	/*
-	 * static inner class for lists.LinkedList Data Structure
+	 * static inner class for lists.nextedList Data Structure
 	 */
 	private static class Node
 	{
 		private int data;
-		private Node link;
-
-		Node()
-		{
-
-		}
+		private Node next;
 
 		Node(int data)
 		{
-			// mergedList=new Node();
-			this.setData(data);
-			this.setLink(null);
-		}
-
-		public int getData()
-		{
-			return this.data;
-		}
-
-		public Node getLink()
-		{
-			return this.link;
-		}
-
-		public void setData(int data)
-		{
 			this.data = data;
+			this.next = null;
 		}
 
-		public void setLink(Node link)
+		public Node()
 		{
-			this.link = link;
+
 		}
 	}
 

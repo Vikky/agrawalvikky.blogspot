@@ -2,31 +2,28 @@ package sorting;
 
 /**
  * @author Vikky.Agrawal
- * 
  */
-public class InsertionSort {
-
-	
+public class InsertionSort
+{
 	int[] arr;
-	
-	InsertionSort(){
-		arr=new int[] { 5, 3, 1, 2, 9, 8 };
+
+	InsertionSort()
+	{
+		arr = new int[] { 5, 3, 1, 2, 9, 8 };
 	}
-	
+
 	/**
 	 * @param args
 	 */
-	
-	public static void main(String[] args) {
 
+	public static void main(String[] args)
+	{
 		InsertionSort obj = new InsertionSort();
 		obj.operate();
-		
-
 	}
-	
-	public void operate(){
 
+	public void operate()
+	{
 
 		System.out.println("Array before sortings: ");
 		printArray();
@@ -49,31 +46,31 @@ public class InsertionSort {
 	 * 8 Arr[i+1] = key
 	 */
 
-	public int[] sort() {
-
+	public int[] sort()
+	{
 		int length = arr.length;
 		int i = 0;
 		int key = 0;
-		for (int j = 1; j < length; j++) {
-
+		for (int j = 1; j < length; j++)
+		{
 			i = j - 1;
 			key = arr[j];
-			while (i >= 0 && arr[i] > key) {
+			while (i >= 0 && arr[i] > key)
+			{
 				arr[i + 1] = arr[i];
 				i--;
 			}
 			arr[i + 1] = key;
 		}
-
 		return arr;
 	}
 
-	public void printArray(){
-		for (int a : arr) {
+	public void printArray()
+	{
+		for (int a : arr)
+		{
 			System.out.print(a + " ");
 		}
 		System.out.println();
 	}
-	
-	
 }

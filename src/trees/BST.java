@@ -1,9 +1,6 @@
 package trees;
 
-import java.util.Stack;
-
 import static java.lang.Math.max;
-import static java.util.Objects.isNull;
 
 /**
  * @author vikky.agrawal
@@ -45,15 +42,13 @@ public class BST
 		System.out.println("Traversing tree in  post-order");
 		postOrder(root);
 
-		System.out.println("Find whether sum=12 exists in tree : " + findSum(root, 12));
+		System.out.println("Find whether sum=12 exists in tree : " + findSum_(root, 12));
 
 		System.out.println("Height of tree : " + getHeight(root));
 
 		printKSmallest(root);
 
 	}
-
-
 
 	public void inorder(TreeNode root)
 	{
@@ -92,8 +87,10 @@ public class BST
 		}
 	}
 
-	/*
+	/**
 	 * O(n log(n) solution. finding for each node using trees.BST property.
+	 * Need to check whether this method cater to duplicate values.
+	 * below method caters for duplicates as well.
 	 */
 	public boolean findSum(TreeNode root, int val)
 	{
@@ -107,28 +104,48 @@ public class BST
 		return false;
 	}
 
+	/**
+	 * Another alternate method to find sum.
+	 *
+	 * @param root
+	 * @param sum
+	 * @return
+	 */
+	public boolean findSum_(TreeNode root, int sum)
+	{
+		if (root == null)
+			return false;
+
+		int data = sum - root.data;
+		boolean found = false;
+		if (data > 0)
+		{
+			if (data > root.data || data < root.data)
+			{
+				found = find(this.root, data);
+			}
+			else
+				found = find(root.left, data) || find(root.right, data);
+		}
+		if (found)
+			return true;
+		return findSum_(root.left, sum) || findSum_(root.right, sum);
+	}
+
 	/*
 	 * O(log n) helper function
 	 */
 
 	private boolean find(TreeNode root, int val)
 	{
-		if (root != null)
-		{
-			if (root.getData() == val)
-			{
-				return true;
-			}
-			else if (root.getData() > val)
-			{
-				return find(root.getLeft(), val);
-			}
-			else
-			{
-				return find(root.getRight(), val);
-			}
-		}
-		return false;
+		if (root == null)
+			return false;
+		if (root.data == val)
+			return true;
+		else if (root.data > val)
+			return find(root.left, val);
+		else
+			return find(root.right, val);
 	}
 
 	//Height of binary tree
@@ -174,7 +191,6 @@ public class BST
 	 * }
 	 */
 
-
 	public void insert(TreeNode root, int val)
 	{
 		if (root == null)
@@ -210,7 +226,6 @@ public class BST
 			}
 		}
 	}
-
 
 	//DS for tree
 	private static class TreeNode

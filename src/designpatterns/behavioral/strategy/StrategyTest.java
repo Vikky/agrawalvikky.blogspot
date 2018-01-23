@@ -8,7 +8,8 @@ import java.math.BigDecimal;
 
 /**
  * Strategy pattern is also known as Policy Pattern.
- * We define multiple algorithms and let client application pass the algorithm to be used as a parameter.
+ * We define multiple algorithms and let client application pass
+ * the algorithm to be used as a parameter.
  */
 public class StrategyTest
 {

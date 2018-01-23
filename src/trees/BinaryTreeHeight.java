@@ -26,7 +26,7 @@ public class BinaryTreeHeight
 		root.insertLeft(root.right.left, 7);
 		root.insertRight(root.right.left, 8);
 
-		//		root.insertLeft(root.right.left.left, 9);
+		root.insertLeft(root.right.left.left, 9);
 
 		System.out.println("isBalanced : " + object.isBalanced(root));
 	}

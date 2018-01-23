@@ -47,19 +47,12 @@ public class VerifyBST
 	}
 
 	// Duplicates are not handled in given function.
-
 	public boolean checkIfBST(TreeNode root, int MIN, int MAX)
 	{
 		if (root == null)
-		{
 			return true;
-		}
-
-		if (root.getData() > MIN && root.getData() < MAX)
-		{
-			return checkIfBST(root.getLeft(), MIN, root.getData()) && checkIfBST(root.getRight(), root.getData(), MAX);
-		}
-		return false;
+		return (root.getData() > MIN && root.getData() < MAX) && checkIfBST(root.getLeft(), MIN, root.getData())
+				&& checkIfBST(root.getRight(), root.getData(), MAX);
 	}
 
 	// Helper functions for tree
@@ -67,8 +60,10 @@ public class VerifyBST
 	/**
 	 * Recursive in-order traversal
 	 */
-	public void inorder(TreeNode root) {
-		if (root != null) {
+	public void inorder(TreeNode root)
+	{
+		if (root != null)
+		{
 			inorder(root.getLeft());
 			System.out.println(root.getData());
 			inorder(root.getRight());

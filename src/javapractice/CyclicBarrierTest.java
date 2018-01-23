@@ -43,7 +43,7 @@ class Runner extends Thread
 	{
 		try
 		{
-			System.out.println(this.getName() + " ready to start, waiting for others");
+			System.out.println(this.getName() + " ready to start, waiting for others ");
 			barrier.await();
 			System.out.println(this.getName() + " running");
 		}
