@@ -121,15 +121,11 @@ public class BST
 		if (data > 0)
 		{
 			if (data > root.data || data < root.data)
-			{
 				found = find(this.root, data);
-			}
 			else
 				found = find(root.left, data) || find(root.right, data);
 		}
-		if (found)
-			return true;
-		return findSum_(root.left, sum) || findSum_(root.right, sum);
+		return found || findSum_(root.left, sum) || findSum_(root.right, sum);
 	}
 
 	/*
