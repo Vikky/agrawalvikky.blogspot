@@ -31,7 +31,8 @@ public class LinkedList
 		//		Node right = list.palindromeRoot;
 		//		System.out.println("Is palindrome : " + list.isPalindrome(right));
 
-		list.testCycle();
+//		list.testCycle();
+		list.operations();
 	}
 
 	public void testCycle()
@@ -144,11 +145,9 @@ public class LinkedList
 		// temp contains last element when recursion done; ie. temp always
 		// points to last node while recursion done and returned
 		// take 2/3 nodes and dry-run
-
 		root.next.next = root;
 		root.next = null;
 		return temp;
-
 	}
 
 	/*

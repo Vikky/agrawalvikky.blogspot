@@ -11,7 +11,7 @@ public class MaxSequence
 	public static void main(String[] args)
 	{
 		int arr[] = { 1, 1, 0,0, 1, 1, 0, 1, 1, 1, 1, 0, 0 };
-		findMaxSequence(arr, 3);
+		findMaxSequence(arr,3);
 	}
 
 	/**

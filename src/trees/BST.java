@@ -228,12 +228,7 @@ public class BST
 	{
 
 		private int data;
-		private TreeNode right;
-		private TreeNode left;
-
-		TreeNode()
-		{
-		}
+		private TreeNode left, right;
 
 		TreeNode(int data)
 		{

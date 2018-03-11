@@ -409,7 +409,6 @@ public class TreeTraversal
 			}
 			flag = flag ? false : true;
 		}
-
 	}
 
 	/**
@@ -552,16 +551,12 @@ public class TreeTraversal
 	//DS for tree
 	private static class TreeNode
 	{
-
 		private int data;
-		private TreeNode right;
-		private TreeNode left;
+		private TreeNode left,right;
 
 		TreeNode(int data)
 		{
 			this.data = data;
-			this.left = null;
-			this.right = null;
 		}
 
 	}
