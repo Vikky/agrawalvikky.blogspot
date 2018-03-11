@@ -16,7 +16,7 @@ public class PrintSpiral
 	public static void main(String[] args)
 	{
 
-		PrintSpiral object = new PrintSpiral();
+		final PrintSpiral object = new PrintSpiral();
 
 		TreeNode root = new TreeNode(1);
 		root.left = new TreeNode(2);
@@ -130,8 +130,8 @@ public class PrintSpiral
 
 	private static class TreeNode
 	{
-		TreeNode left, right;
 		int data;
+		TreeNode left, right;
 
 		TreeNode(int data)
 		{
