@@ -78,10 +78,7 @@ public class HeapSort
 
 		if (temp != index)
 		{
-			array.add(index, largest);
-			array.remove(index + 1); // Arraylist shifts elements to right, so remove it
-			array.add(temp, indexElement);
-			array.remove(temp + 1);
+			swap(array, index, indexElement, largest, temp);
 
 			if (temp < size / 2)
 			{
@@ -91,8 +88,15 @@ public class HeapSort
 
 	}
 
-	
-	
+	private void swap(final ArrayList<Integer> array, final int index, final int indexElement, final int largest,
+			final int temp)
+	{
+		array.add(index, largest);
+		array.remove(index + 1); // Arraylist shifts elements to right, so remove it
+		array.add(temp, indexElement);
+		array.remove(temp + 1);
+	}
+
 	/*
 	 * Building a Max Heap takes O(n) time
 	 */
