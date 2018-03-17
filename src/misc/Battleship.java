@@ -1,3 +1,5 @@
+package misc;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -184,7 +186,7 @@ class Play{
 						}
 					}
 				if(count==temp){
-					System.out.println("Ship"+shipArr.indexOf(ship)+" is dead:");
+					System.out.println("misc.Ship"+shipArr.indexOf(ship)+" is dead:");
 					p.shipArr.remove(ship);
 				}
 			}else{
@@ -203,7 +205,7 @@ class Play{
 					}
 				//System.out.println("temp:"+temp+"count : "+count);	
 				if(count==temp){
-					System.out.println("Ship"+shipArr.indexOf(ship)+" is dead:");
+					System.out.println("misc.Ship"+shipArr.indexOf(ship)+" is dead:");
 					p.shipArr.remove(ship);
 				}
 			}

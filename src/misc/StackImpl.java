@@ -1,3 +1,5 @@
+package misc;
+
 /**
  * @author Vikky.Agrawal
  * Stack operations and solutions to few problems
@@ -26,8 +28,8 @@ public class StackImpl {
 		/*
 		//Find min implementation
 		
-		StackImpl stack1=new StackImpl();
-		StackImpl stack2=new StackImpl();
+		misc.StackImpl stack1=new misc.StackImpl();
+		misc.StackImpl stack2=new misc.StackImpl();
 		
 		for (int i = 1; i < 10; i++) {
 			int data=(int) (Math.random() * 100);
@@ -66,7 +68,7 @@ public class StackImpl {
 		
 		//Testing Queue functionality
 		
-		/*QueueUsingStacks queue= new QueueUsingStacks();
+		/*misc.QueueUsingStacks queue= new misc.QueueUsingStacks();
 		
 		for (int i = 1; i < 10; i++) {
 			int data=(int) (Math.random() * 100);

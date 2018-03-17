@@ -1,3 +1,5 @@
+package misc;
+
 public class PascalTriangle {
 
 	int arr[];

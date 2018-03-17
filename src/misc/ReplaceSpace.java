@@ -1,3 +1,5 @@
+package misc;
+
 /**s
  * @author Vikky.Agrawal
  * Replace space with %20 in char array in-place.

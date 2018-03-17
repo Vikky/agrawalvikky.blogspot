@@ -1,4 +1,4 @@
-/*
+package string;/*
  * Q: Check whether a String (after rotation) is palindrome or not?
  */
 /**
