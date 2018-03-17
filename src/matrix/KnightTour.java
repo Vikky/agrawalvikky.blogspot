@@ -53,12 +53,12 @@ public class KnightTour
 			return -1;
 
 		Queue<Node> queue = new LinkedList<>();
-		source.visited = true;
 		queue.add(source);
 
 		while (!queue.isEmpty())
 		{
 			Node ptr = queue.poll();
+			ptr.visited = true;
 			Queue<Node> possibleMoves = getPossibleMoves(ptr, ptr.distance + 1);
 
 			while (!possibleMoves.isEmpty())

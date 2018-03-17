@@ -14,7 +14,7 @@ public class RainWater
 
 	/**
 	 * O(n) with O(1) time complexity
-	 * Idea is to find out max left and max right, minimum of these 2 minus bar height will give the water storage
+	 * Idea is to find out max left and max right, (minimum of these 2, minus bar height) will give the water storage
 	 * Maintain 2 pointers for maximum in left and maximum in right
 	 * @param args
 	 */
@@ -46,5 +46,4 @@ public class RainWater
 		}
 		System.out.println("max water that can be trapped : " + water);
 	}
-
 }
