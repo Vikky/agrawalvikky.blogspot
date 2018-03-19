@@ -411,22 +411,6 @@ public class TreeTraversal
 		}
 	}
 
-	/**
-	 * http://www.techiedelight.com/print-nodes-binary-tree-specific-order/
-	 * bottom up tree print
-	 */
-	//TODO
-	public void printTreeBottomUp(TreeNode root, Stack<TreeNode> left, Stack<TreeNode> right)
-	{
-		if (isNull(root))
-			return;
-
-		final Stack<TreeNode> stack = new Stack<>();
-		final Queue<TreeNode> auxiliaryQueue = new LinkedList<>();
-		TreeNode ptr = root;
-		stack.push(ptr);
-	}
-
 	private void pushIfNotNull(final Stack<TreeNode> stack, final TreeNode node)
 	{
 		if (nonNull(node))
@@ -552,7 +536,7 @@ public class TreeTraversal
 	private static class TreeNode
 	{
 		private int data;
-		private TreeNode left,right;
+		private TreeNode left, right;
 
 		TreeNode(int data)
 		{
