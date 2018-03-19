@@ -29,6 +29,11 @@ public class RightDownPaths
 		this.calculate(arr);
 	}
 
+	/**
+	 * O(n^2) solution.
+	 * @param arr
+	 */
+
 	public void calculate(int[][] arr)
 	{
 
