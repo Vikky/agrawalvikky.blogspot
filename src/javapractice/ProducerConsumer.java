@@ -8,7 +8,6 @@ import java.util.concurrent.BlockingQueue;
  */
 public class ProducerConsumer
 {
-
 	public static void main(String[] args)
 	{
 		Monitor monitor = new Monitor();
@@ -33,12 +32,10 @@ public class ProducerConsumer
 		t1.start();
 		t2.start();
 	}
-
 }
 
 class Monitor
 {
-
 	private int value = 0;
 	final BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<>(1);
 
@@ -69,4 +66,3 @@ class Monitor
 		}
 	}
 }
-

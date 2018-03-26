@@ -43,8 +43,8 @@ public class BinaryTreeLCA
 		root.insertLeft(root.right.right, 14);
 		root.insertRight(root.right.right, 15);
 
-		root.printInOrder(root);
-		System.out.println();
+		//		root.printInOrder(root);
+		//		System.out.println();
 
 		int min = 1, max = 15;
 		for (int i = 0; i < 10; i++)
@@ -56,7 +56,7 @@ public class BinaryTreeLCA
 			if (nonNull(lca))
 				System.out.println("LCA of " + first.data + " and " + second.data + " is : " + lca.data);
 
-			object.v1= false;
+			object.v1 = false;
 			object.v2 = false;
 			final TreeNode lcaNode = object.findLCAUtil(root, firstRandom, secondRandom);
 			if (nonNull(lcaNode) && object.v1 && object.v2)

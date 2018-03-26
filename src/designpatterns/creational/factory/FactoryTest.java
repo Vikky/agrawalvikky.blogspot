@@ -23,7 +23,8 @@ import static designpatterns.creational.factory.Shapes.TRIANGLE;
  * and other objects to work with. Which gives you flexibility to change your back-end database
  * without changing your DAO layer in case you are using ANSI SQL features and not coded on DBMS specific feature?
  * <p>
- * Another advantage of static factory method pattern is that they can cache frequently used object and eliminate duplicate object creation.
+ * Another advantage of static factory method pattern is that they can cache frequently used object and eliminate
+ * duplicate object creation.
  * Boolean.valueOf() method is good example which caches true and false boolean value.
  */
 

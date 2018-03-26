@@ -8,7 +8,6 @@ import java.util.concurrent.Executors;
  */
 public class ThreadTest
 {
-
 	/**
 	 * @param args
 	 */
@@ -74,10 +73,7 @@ public class ThreadTest
 
 		t1.start();
 		t2.start();
-
-
 	}
-
 }
 
 class Producer extends Thread
@@ -109,7 +105,6 @@ class Producer extends Thread
 
 		}
 	}
-
 }
 
 class Consumer extends Thread
@@ -142,7 +137,6 @@ class Consumer extends Thread
 		}
 
 	}
-
 }
 
 class Semaphore
@@ -190,7 +184,6 @@ class Semaphore
 			e.printStackTrace();
 		}
 	}
-
 }
 
 
@@ -243,6 +236,4 @@ class DeadLockTest
 			}
 		}
 	}
-
 }
-
