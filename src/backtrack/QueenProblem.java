@@ -5,7 +5,6 @@ package backtrack;
  */
 public class QueenProblem
 {
-
 	private static final int numberOfQueens = 4;
 
 	public static void main(String[] args)
@@ -15,10 +14,6 @@ public class QueenProblem
 		if (checkNQueen(board, 0) == false)
 		{
 			System.out.print("Solution does not exist");
-		}
-		else
-		{
-			printSolution(board);
 		}
 	}
 
@@ -39,7 +34,7 @@ public class QueenProblem
 		}
 
 		//check lower diagonal entries
-		for (int i = column, j = row; i >= 0 && j < column; i--, j++)
+		for (int i = row, j = column; i < numberOfQueens && j >= 0 ; i++, j--)
 		{
 			if (board[i][j] == 1)
 				return false;
@@ -47,12 +42,23 @@ public class QueenProblem
 		return true;
 	}
 
+	/**
+	 * print all solutions
+	 * @param board
+	 * @param col
+	 * @return
+	 */
 	private static boolean checkNQueen(int[][] board, int col)
 	{
 		//placed queens in columns
 		if (col >= numberOfQueens)
+		{
+			printSolution(board);
+			System.out.println("\n");
 			return true;
+		}
 
+		boolean result = false;
 		for (int i = 0; i < numberOfQueens; i++)
 		{
 			if (isSafe(board, i, col))
@@ -60,10 +66,7 @@ public class QueenProblem
 				board[i][col] = 1;
 
 				//Check whether solution exists for next queens
-				if (checkNQueen(board, col + 1))
-				{
-					return true;
-				}
+				result = checkNQueen(board, col + 1) || result;
 
 				//If no solution exists then backtrack and place in other square.
 				board[i][col] = 0;
@@ -71,7 +74,7 @@ public class QueenProblem
 		}
 		/* If queen can not be place in any row in
 		   this column, then return false */
-		return false;
+		return result;
 	}
 
 	private static void printSolution(int board[][])

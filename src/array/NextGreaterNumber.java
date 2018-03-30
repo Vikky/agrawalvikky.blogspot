@@ -31,6 +31,14 @@ public class NextGreaterNumber
 			System.out.println(a);
 	}
 
+	/**
+	 *
+	 * @param arr
+	 * @param index
+	 * @param element
+	 * @param min
+	 * @return
+	 */
 	private static int findNextGreaterIndex(final int[] arr, final int index, final int element, int min)
 	{
 		for (int j = index + 1; j < arr.length; j++)
