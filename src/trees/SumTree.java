@@ -6,7 +6,7 @@ package trees;
 public class SumTree
 {
 
-	public static void main(String[] args) throws java.lang.Exception
+	public static void main(String[] args)
 	{
 		Node root = new Node(1);
 		root.left = new Node(2);
@@ -23,7 +23,7 @@ public class SumTree
 
 		object.printInorder(root);
 
-		/* Constructing tree given in the above figure */
+		/* Constructing tree  */
 		Node tree = new Node(10);
 		tree.left = new Node(-2);
 		tree.right = new Node(6);
@@ -35,7 +35,6 @@ public class SumTree
 		object.convertSumTree(tree);
 
 		// Print inorder traversal of the converted tree to test result
-		// of toSumTree()
 		System.out.println("Inorder Traversal of the resultant tree is:");
 		object.printInorder(tree);
 
@@ -48,7 +47,6 @@ public class SumTree
 
 		int old = root.data;
 		root.data = convertSumTree(root.left) + convertSumTree(root.right);
-		System.out.println("setting root data "+root.data);
 		return root.data + old;
 	}
 
@@ -83,5 +81,4 @@ public class SumTree
 			this.data = data;
 		}
 	}
-
 }
