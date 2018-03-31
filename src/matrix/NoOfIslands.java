@@ -1,4 +1,4 @@
-package queue;
+package matrix;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,11 +15,13 @@ public class NoOfIslands
 {
 
 	int[][] board;
+	int ROWS;
+	int COLUMNS;
 
 	public static void main(String[] args)
 	{
 		NoOfIslands nuOfIslands = new NoOfIslands();
-		System.out.println("Total islands:" + nuOfIslands.findNumberOfIslands());
+		System.out.println("Total islands : " + nuOfIslands.findNumberOfIslands());
 	}
 
 	private int findNumberOfIslands()
@@ -31,13 +33,18 @@ public class NoOfIslands
 				{0, 0, 0, 0, 0},
 				{1, 0, 1, 0, 1}
 		};
-		boolean[][] visited = new boolean[board.length][board[0].length];
+
+		ROWS =board.length;
+		COLUMNS =board[0].length;
+
+
+		boolean[][] visited = new boolean[ROWS][COLUMNS];
 
 		int numberOfIslands = 0;
 
-		for (int row = 0; row < board.length; row++)
+		for (int row = 0; row < ROWS; row++)
 		{
-			for (int col = 0; col < board[0].length; col++)
+			for (int col = 0; col < COLUMNS; col++)
 			{
 				if (!visited[row][col] && board[row][col] == 1)
 				{
@@ -93,7 +100,7 @@ public class NoOfIslands
 
 	private boolean isInsideBoard(final int row, final int col)
 	{
-		return row >= 0 && row < board.length && col >= 0 && col < board[0].length;
+		return row >= 0 && row < ROWS && col >= 0 && col < COLUMNS;
 	}
 
 	private static class Node
@@ -116,5 +123,4 @@ public class NoOfIslands
 					'}';
 		}
 	}
-
 }

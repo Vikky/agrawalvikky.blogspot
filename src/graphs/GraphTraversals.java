@@ -55,9 +55,8 @@ public class GraphTraversals
 	{
 		boolean[] visited = new boolean[vertices];
 		System.out.println("Traversed node : " + startVertex);
-		visited[startVertex] = true;
-
 		LinkedList<Integer> queue = new LinkedList<>();
+		visited[startVertex] = true;
 		queue.add(startVertex);
 
 		while (!queue.isEmpty())
@@ -97,10 +96,8 @@ public class GraphTraversals
 			int vertex = iterator.next();
 			if (!visited[vertex])
 			{
-				visited[vertex] = true;
 				DFSUtil(visited, vertex);
 			}
 		}
 	}
-
 }
