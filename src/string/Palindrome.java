@@ -21,7 +21,6 @@ public class Palindrome
 		System.out.println(object.isPalindrome("race a car"));
 	}
 
-
 	public boolean isPalindrome(final String str)
 	{
 		char[] array = str.toCharArray();
@@ -39,7 +38,7 @@ public class Palindrome
 				end--;
 				continue;
 			}
-			if (!(""+array[start]).equalsIgnoreCase(""+array[end]))
+			if (!("" + array[start]).equalsIgnoreCase("" + array[end]))
 			{
 				return false;
 			}
@@ -49,5 +48,17 @@ public class Palindrome
 		return true;
 	}
 
+	private boolean isPalindromeRecursive(String str, int start, int end)
+	{
+		if (start == end)
+			return true;
+		if (start > end)
+			return false;
+
+		boolean pal = isPalindromeRecursive(str, start + 1, end - 1);
+		if (str.charAt(start) != str.charAt(end))
+			return false;
+		return pal;
+	}
 
 }
