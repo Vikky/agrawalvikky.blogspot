@@ -11,6 +11,10 @@ import static java.util.Objects.nonNull;
  * Created by vikky.agrawal on 6/17/17.
  * <p>
  * Two nodes are cousins of each other if they are at same level and have different parents.
+ * Algo:
+ * check if same level :yes return true, else false
+ * check if different parents : yes return true, else false
+ * return true
  */
 public class BinaryTreeCousins
 {

@@ -39,13 +39,13 @@ public class MaxSequence
 					count--;
 				j++;
 			}
-			int templength = j - i;
+			int tempLength = j - i;
 			if (j>=length && arr[j-1]==0)
 			{
-				templength--;
+				tempLength--;
 			}
 
-			maxLength = maxLength < (templength) ? (templength) : maxLength;
+			maxLength = maxLength < (tempLength) ? (tempLength) : maxLength;
 			System.out.println("i index : " + i + " j index : " + j + " length : " + maxLength);
 
 			while (i < length && arr[i] != 0 && i < j)
