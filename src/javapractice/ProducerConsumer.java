@@ -20,14 +20,10 @@ public class ProducerConsumer
 			}
 		};
 
-		Thread t2 = new Thread()
-		{
-			public void run()
-			{
-				for (int var = 0; var < 10; var++)
-					monitor.consume();
-			}
-		};
+		Thread t2 = new Thread(() -> {
+			for (int var = 0; var < 10; var++)
+				monitor.consume();
+		});
 
 		t1.start();
 		t2.start();
