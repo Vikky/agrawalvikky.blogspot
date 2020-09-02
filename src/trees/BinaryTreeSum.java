@@ -9,8 +9,7 @@ import static java.util.Objects.nonNull;
 /**
  * http://www.techiedelight.com/find-maximum-sum-root-to-leaf-path-binary-tree/
  * <p>
- * Finding max sum in binary tree
- * Created by viagrawal on 6/24/17.
+ * Finding max sum in binary tree Created by viagrawal on 6/24/17.
  */
 public class BinaryTreeSum
 {
@@ -39,6 +38,12 @@ public class BinaryTreeSum
 		object.findPath(root, object.maxSum(root), path);
 		System.out.print("Max sum path : ");
 		object.printPath(path);
+
+		final List<Integer> path_ = new ArrayList<>();
+		object.findPathSum(root, object.maxSum(root), path);
+		System.out.print("Max sum path new method: ");
+		object.printPath(path);
+
 	}
 
 	public int maxSum(final TreeNode node)
@@ -101,6 +106,23 @@ public class BinaryTreeSum
 			root.right = new TreeNode(data);
 		}
 
+	}
+
+	public boolean findPathSum(TreeNode root, int sum, List<Integer> path)
+	{
+		if (root == null)
+			return false;
+
+		if (sum == 0)
+			return true;
+
+		boolean left = findPathSum(root.left, sum - root.data, path);
+		boolean right = findPathSum(root.right, sum - root.data, path);
+
+		if (left || right)
+			path.add(root.data);
+
+		return left || right;
 	}
 
 }
