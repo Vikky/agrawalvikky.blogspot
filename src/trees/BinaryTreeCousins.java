@@ -58,8 +58,9 @@ public class BinaryTreeCousins
 		final Queue<TreeNode> treeNodes = new LinkedList<>();
 		putIfNotNull(treeNodes, root.left);
 		putIfNotNull(treeNodes, root.right);
+		int height = getHeight(root);
 
-		for (int level = 1; level < getHeight(root); level++)
+		for (int level = 1; level < height; level++)
 		{
 			final Pair<Boolean, Boolean> pair = isCousinExists(treeNodes, first, second);
 			if (pair.fst && pair.snd)

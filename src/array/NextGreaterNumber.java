@@ -3,13 +3,17 @@ package array;
 import java.util.Arrays;
 
 /**
+ * Given a number, find the next greater number using same digits(or by rearranging the digits). For example, if the
+ * given number is 1234 then next greater number would be 1243. For the input 1243, next greater number would be 1324.
+ * If the input is 6938652 then the output should be the number 6952368
+ * <p>
  * Created by viagrawal on 3/10/18.
  */
 public class NextGreaterNumber
 {
 	public static void main(String[] args)
 	{
-		int arr[] = new int[] { 1,9,1,7,0 };
+		int arr[] = new int[] { 1, 9, 1, 7, 0 };
 
 		for (int i = arr.length - 1; i >= 0; i--)
 		{
@@ -32,7 +36,6 @@ public class NextGreaterNumber
 	}
 
 	/**
-	 *
 	 * @param arr
 	 * @param index
 	 * @param element
