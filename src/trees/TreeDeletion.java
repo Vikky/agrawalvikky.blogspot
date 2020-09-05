@@ -150,15 +150,15 @@ public class TreeDeletion
 		}
 		return curr;
 	}
-}
 
-class Node
-{
-	int data;
-	Node left = null, right = null;
-
-	Node(int data)
+	static class Node
 	{
-		this.data = data;
+		int data;
+		Node left = null, right = null;
+
+		Node(int data)
+		{
+			this.data = data;
+		}
 	}
 }
