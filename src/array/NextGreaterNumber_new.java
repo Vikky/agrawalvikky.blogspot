@@ -5,6 +5,16 @@ import com.sun.tools.javac.util.Pair;
 /**
  * If given number is 1234 then next greater number would be 1243. For the input 1243, next greater number would be
  * 1324. If the input is 6938652 then the output should be the number 6952368
+ *
+ * Algo:
+ *
+ * - Start from end of the array
+ * - check if lesser digit than current one is present (repeat till index=0)
+ * -	if yes return that digit with its index
+ * -  	swap index with current digit
+ * -  	Sort the next digits starting after the index
+ * 		(break)
+ *
  */
 public class NextGreaterNumber_new
 {
