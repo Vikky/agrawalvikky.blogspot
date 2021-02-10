@@ -29,7 +29,7 @@ public class NextGreaterNumber_new
 	void findNextGreater(int[] arr)
 	{
 		int len = arr.length;
-		//preconfitions.
+		//preconditions.
 
 		boolean success = false;
 		for (int i = len - 1; i > 0; i--)

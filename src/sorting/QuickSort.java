@@ -50,10 +50,10 @@ public class QuickSort
 	/*
 	 * Algorithm for partition to find pivot
 	 *
-	 * PARTITION.A;p;r
-	 * 1 x =A[r]
-	 * 2 i = p-1
-	 * 3 for j =p to r-1
+	 * PARTITION.A;low;high
+	 * 1 x =A[high]
+	 * 2 i = low-1
+	 * 3 for j =low to high-1
 	 * 4   if A[j] <= x
 	 * 5   i=i+1
 	 * 6   exchange A[i]  with A[j]

@@ -54,18 +54,16 @@ public class BinaryTreeEqual
 	private static boolean checkIfEqual(Node first, Node second)
 	{
 
-		if (first == null && second == null)
+		if(first==null && second ==null)
 			return true;
 
-		if ((first != null && second == null) || (first == null && second != null))
+		if(first==null || second==null)
 			return false;
 
 		if (first.data == second.data)
-		{
 			return checkIfEqual(first.left, second.left) && checkIfEqual(first.right, second.right);
-		}
-		else
-			return false;
+
+		return false;
 	}
 
 	public static void insert(Node node, int value)

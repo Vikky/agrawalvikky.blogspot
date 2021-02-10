@@ -19,13 +19,35 @@ public class Main {
 		
 	//	new MainTest();
 
+		System.out.println("timemillis : "+System.currentTimeMillis()/1000);
+
+		boolean test = 3600 > System.currentTimeMillis()/1000;
+		System.out.println("test : "+test);
+
+
+
+		int num =8;
+
+		int count=0;
+		while(num%10>0)
+		{
+			count++;
+			num = num/10;
+		}
+		System.out.print("Digits :"+count+" \\");
+
 
 		System.out.println("5F:7C:83:AD:FB:FC:4F:6B:12:A5:3E:2A:73:2E:40:BE:27:87:D2:55".replaceAll(":"," "));
 
 		
 		String s1="abc";
 		String s2="abc";
-		
+
+		int a = s1.charAt(0);
+		System.out.println("charAt "+a);
+
+
+
 		System.out.println(s1==s2);
 		
 		

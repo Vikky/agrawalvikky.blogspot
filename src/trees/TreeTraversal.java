@@ -369,6 +369,49 @@ public class TreeTraversal
 		}
 	}
 
+
+	private void spiralTraverse(TreeNode node) {
+
+		if (node == null)
+			return;
+
+		// Do level order traversal and put nodes in queue
+		// Pop from queue while not empty and put in stack.
+		// pop from stack - and add in queue in alternate (LR, RL)
+
+		Queue<TreeNode> queue = new LinkedList<>();
+		Stack<TreeNode> stack = new Stack<>();
+
+		queue.add(node);
+		boolean left = true;
+
+		while (!queue.isEmpty()) {
+
+			int size = queue.size();
+
+			while (size-- > 0) {
+				TreeNode ptr = queue.poll();
+				System.out.print(ptr.data + " ");
+				stack.push(ptr);
+			}
+
+			while (!stack.isEmpty()) {
+				TreeNode ptr = stack.pop();
+				if (left) {
+					pushIfNotNull(queue, ptr.left);
+					pushIfNotNull(queue, ptr.right);
+				}
+				else
+				{
+					pushIfNotNull(queue, ptr.right);
+					pushIfNotNull(queue, ptr.left);
+				}
+
+			}
+			left =!left;
+		}
+	}
+
 	/**
 	 * Spiral traversal of BT
 	 */
