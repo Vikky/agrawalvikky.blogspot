@@ -4,9 +4,6 @@ package array;
  * Given an array of positive numbers and a positive number ‘k’, find the maximum sum of any contiguous subarray of size ‘k’.
 */
 
-// Class name must be "Main"
-// Libraries included:
-// json simple, guava, apache commons lang3, junit, jmock
 
 public class SubArrayMaxSum {
     public static void main(String[] args) {
