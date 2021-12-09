@@ -12,10 +12,8 @@ import java.util.Queue;
  */
 
 
-public class ZigzagTraversal 
-{
-	public static void main(String[] args)
-	{
+public class ZigzagTraversal {
+	public static void main(String[] args) {
 		TreeNode root = new TreeNode(1);
 		root.left = new TreeNode(2);
 		root.right = new TreeNode(3);
@@ -29,25 +27,22 @@ public class ZigzagTraversal
 	}
 
 
-	private List<List<Integer>> traverse(TreeNode root)
-	{
+	private List<List<Integer>> traverse(TreeNode root) {
 
-		if(root ==null)
+		if (root == null)
 			return new ArrayList();
 
 		Queue<TreeNode> queue = new LinkedList();
 		queue.add(root);
 		boolean flag = true;
 
-		List<List<Integer>>  result = new ArrayList();
-		while(!queue.isEmpty())
-		{
+		List<List<Integer>> result = new ArrayList();
+		while (!queue.isEmpty()) {
 			int size = queue.size();
 			List<Integer> list = new ArrayList();
-			for(int i=0; i<size ;i++)
-			{
+			for (int i = 0; i < size; i++) {
 				TreeNode node = queue.poll();
-				if(flag)
+				if (flag)
 					list.add(node.val);
 				else
 					list.add(0, node.val);
@@ -57,32 +52,31 @@ public class ZigzagTraversal
 			}
 			print(list);
 			result.add(list);
-			flag=!flag;
+			flag = !flag;
 		}
 		return result;
 	}
 
-	private void addIfNotNull(TreeNode node, Queue<TreeNode> queue)
-	{
-		if(node!=null)
+	private void addIfNotNull(TreeNode node, Queue<TreeNode> queue) {
+		if (node != null)
 			queue.add(node);
 	}
 
-	private void print(List<Integer> list)
-	{
-		list.forEach(num-> {
+	private void print(List<Integer> list) {
+		list.forEach(num -> {
 			System.out.println(num);
 		});
 	}
-}
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
 
-	TreeNode(int val) {
-		this.val = val;
+	static class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode(int val) {
+			this.val = val;
+		}
+
 	}
-
 }
