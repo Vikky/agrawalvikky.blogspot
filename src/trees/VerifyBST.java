@@ -8,9 +8,6 @@ public class VerifyBST
 {
 	private TreeNode root;
 
-	private static final int MIN = Integer.MIN_VALUE;
-	private static final int MAX = Integer.MAX_VALUE;
-
 	public VerifyBST()
 	{
 		root = new TreeNode(4);
@@ -43,16 +40,20 @@ public class VerifyBST
 		root.getLeft().setRight(new TreeNode(6));
 
 		inorder(root);
-		System.out.println("Whether this tree is trees.BST? :  " + checkIfBST(root, MIN, MAX));
+		System.out.println("Whether this tree is trees.BST? :  " + checkIfBST(root, null, null));
 	}
 
 	// Duplicates are not handled in given function.
-	public boolean checkIfBST(TreeNode root, int MIN, int MAX)
+	public boolean checkIfBST(TreeNode root, Integer min, Integer max)
 	{
 		if (root == null)
 			return true;
-		return (root.getData() > MIN && root.getData() < MAX) && checkIfBST(root.getLeft(), MIN, root.getData())
-				&& checkIfBST(root.getRight(), root.getData(), MAX);
+
+		if(min!=null && root.data<=min || max!=null && root.data >=max)
+			return false;
+
+		return  checkIfBST(root.getLeft(), min, root.getData())
+				&& checkIfBST(root.getRight(), root.getData(), max);
 	}
 
 	// Helper functions for tree
