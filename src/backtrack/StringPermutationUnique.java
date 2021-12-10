@@ -15,6 +15,7 @@ public class StringPermutationUnique
 
 	}
 
+	// TC is O(2^n) which is not optimal
 	private void permute(String str, int l, int r)
 	{
 		if (l == r)

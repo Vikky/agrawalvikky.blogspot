@@ -1,5 +1,9 @@
 package search;
 
+
+/**
+ * Refer {@link RotatedArraySearch}
+ */
 public class BinarySearchRotated {
 
   public static void main(String[] args) {
