@@ -1,4 +1,4 @@
-package dfs;
+package graphs.dfs;
 
 /**
  * Given a binary tree and a number ‘S’, find if the tree has a path from root-to-leaf such that the

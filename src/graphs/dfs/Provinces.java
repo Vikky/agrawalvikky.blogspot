@@ -1,4 +1,4 @@
-package dfs;
+package graphs.dfs;
 
 /**
  * There are n cities. Some of them are connected, while some are not. If city a is connected
