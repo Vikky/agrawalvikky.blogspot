@@ -40,7 +40,7 @@ public class Provinces {
     for (int j = 0; j < connected.length; j++) {
       if (connected[i][j] == 1 && !visited[j]) {
         visited[j] = true;
-        dfs(connected, visited, j);
+        dfs(connected, visited, j); // check the depth first nodes.
       }
     }
   }

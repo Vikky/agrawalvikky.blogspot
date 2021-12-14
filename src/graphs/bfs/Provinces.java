@@ -35,7 +35,7 @@ public class Provinces {
       if (!visited[i]) {
         queue.add(i);
         while (!queue.isEmpty()) {
-          int node = queue.poll();
+          int node = queue.poll(); // check all neighbours of i;
           visited[node] = true;
           for (int j = 0; j < n; j++) {
             if (connected[node][j] == 1 && !visited[j]) {
