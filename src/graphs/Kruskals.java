@@ -29,7 +29,7 @@ public class Kruskals {
     if (points == null || points.length == 0) return 0;
 
     int nodes = points.length;
-    PriorityQueue<Edge> priorityQueue = new PriorityQueue<>((x, y) -> x.node1 - x.node2);
+    PriorityQueue<Edge> priorityQueue = new PriorityQueue<>((x, y) -> x.weight - y.weight);
 
     for (int i = 0; i < nodes; i++) {
       for (int j = i + 1; j < nodes; j++) {
@@ -39,7 +39,7 @@ public class Kruskals {
         int x2 = points[j][0];
         int y2 = points[j][1];
 
-        int weight = Math.abs((x1 - x2) + (y1 - y2));
+        int weight = Math.abs(x1 - x2) + Math.abs(y1 - y2);
         priorityQueue.offer(new Edge(i, j, weight));
       }
     }
