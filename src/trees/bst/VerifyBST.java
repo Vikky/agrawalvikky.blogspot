@@ -1,4 +1,4 @@
-package trees;
+package trees.bst;
 
 /**
  * @author vikky.agrawal
