@@ -17,7 +17,7 @@
 
 **To be checked YT channels :  codekarle, thinksoftware**
 
-** List of websites/blogs: **
+**List of websites/blogs:**
 1. https://github.com/donnemartin/system-design-primer/tree/master
 2. https://github.com/shashank88/system_design
 
