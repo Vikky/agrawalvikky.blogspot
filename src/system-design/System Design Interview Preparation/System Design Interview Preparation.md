@@ -15,7 +15,7 @@
 1. https://www.youtube.com/playlist?list=PLhgw50vUymycJPN6ZbGTpVKAJ0cL4OEH3 **(codekarle)**
 2. thinksoftware
 
-During this process, discussion is the core. The candidate is more likely to l**ead the conversation and discussion high-level components, details, pros and cons, and everything with the interviewer.**During the interview session, your communication and problem-solving ability are mainly evaluated. Given an open-ended problem, how do you analyze the issue, how do you solve it step by step, how do you explain your idea and discuss with others, how do you evaluate your system and optimize it are what interviewers mostly care about.
+During this process, discussion is the core. The candidate is more likely to lead the conversation and discussion high-level components, details, pros and cons, and everything with the interviewer.**During the interview session, your communication and problem-solving ability are mainly evaluated. Given an open-ended problem, how do you analyze the issue, how do you solve it step by step, how do you explain your idea and discuss with others, how do you evaluate your system and optimize it are what interviewers mostly care about.
 
 **Thinking in terms of design problems  :** 
 
