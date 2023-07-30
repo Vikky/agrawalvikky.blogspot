@@ -1,27 +1,19 @@
-﻿
-**STAY FOCUSED**
-
-**SHOW FIGHTING SPIRIT**
-
-**Also Refer to**
-
-` `**<https://www.interviewbit.com/courses/system-design/>**  
-
-[**http://blog.gainlo.co/index.php/2015/12/22/how-to-crack-the-coding-interview-with-practicing-only-30-questions/](http://blog.gainlo.co/index.php/2015/12/22/how-to-crack-the-coding-interview-with-practicing-only-30-questions/)** 
-
-[**https://www.youtube.com/watch?v=UzLMhqg3_Wc](https://www.youtube.com/watch?v=UzLMhqg3_Wc) **( gives the idea what to study for design questions)**
-
-[**System Design Cheatsheet](https://gist.github.com/vasanthk/485d1c25737e8e72759f)  **( System design cheat sheet)**
-
-[**https://github.com/donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer) **(System design gist)** 
-
-**To be checked YT channels :  codekarle, thinksoftware**
+﻿**STAY FOCUSED**
 
 **List of websites/blogs:**
-1. https://github.com/donnemartin/system-design-primer/tree/master
+
+1. https://github.com/donnemartin/system-design-primer/tree/master  **(System design gist)**
 2. https://github.com/shashank88/system_design
+3. https://www.interviewbit.com/courses/system-design/  
+4. http://blog.gainlo.co/index.php/2015/12/22/how-to-crack-the-coding-interview-with-practicing-only-30-questions/
+5. [https://www.youtube.com/watch?v=UzLMhqg3_Wc](https://www.youtube.com/watch?v=UzLMhqg3_Wc) **( gives the idea what to study for design questions)**
+6. [System Design Cheatsheet](https://gist.github.com/vasanthk/485d1c25737e8e72759f)  **( System design cheat sheet)**
+7. https://tianpan.co/hacking-the-software-engineer-interview/?isAdmin=true#how-to-crack-the-coding-interview **(Organised notes)**
+8. https://astikanand.github.io/techblogs/high-level-system-design/
 
-
+**Few YT channels :**
+1. https://www.youtube.com/playlist?list=PLhgw50vUymycJPN6ZbGTpVKAJ0cL4OEH3 **(codekarle)**
+2. thinksoftware
 
 During this process, discussion is the core. The candidate is more likely to l**ead the conversation and discussion high-level components, details, pros and cons, and everything with the interviewer.**During the interview session, your communication and problem-solving ability are mainly evaluated. Given an open-ended problem, how do you analyze the issue, how do you solve it step by step, how do you explain your idea and discuss with others, how do you evaluate your system and optimize it are what interviewers mostly care about.
 
@@ -32,7 +24,7 @@ During this process, discussion is the core. The candidate is more likely to l**
 1. **Clarify doubts before attempting the solution**
 1. **Attempt a high level design keeping scalability in mind.**
    1. **Think about load balancers**
-   1. **Caching layer**
+   1. **Caching layer**0000000
    1. **DB partitioning**
    1. **Normalized vs denormalized data for performance**
 
@@ -40,18 +32,14 @@ During this process, discussion is the core. The candidate is more likely to l**
 
 ![](Aspose.Words.4602a257-0a86-4044-a282-c67693f32b80.001.png)
 
-
-
-**IF I DON’T KNOW I’LL LEARN IT…!!!**
-
 **(Gaps to fill : Data modeling, estimations, Database techs)**
 
 **Pre-requisites :** 
 
 Systems are complex, and when you’re designing a system you’re grappling with its full complexity. Given this, there are many topics you should be familiar with, such as:
 
-- ` `**Concurrency.** Do you understand threads, deadlock, and starvation? Do you know how to parallelize algorithms? Do you understand consistency and coherence?
-- ` `**Networking.** Do you roughly understand IPC and TCP/IP? Do you know the difference between throughput and latency, and when each is the relevant factor?
+- **Concurrency.** Do you understand threads, deadlock, and starvation? Do you know how to parallelize algorithms? Do you understand consistency and coherence?
+- **Networking.** Do you roughly understand IPC and TCP/IP? Do you know the difference between throughput and latency, and when each is the relevant factor?
   - Two way SSL :  <http://www.robinhowlett.com/blog/2016/01/05/everything-you-ever-wanted-to-know-about-ssl-but-were-afraid-to-ask/> 
   - Public key is shared to public(sender) and private key is kept with a person, public key is used to encrypt the message and then private key is used to decrypt it.
 - **Abstraction.** You should understand the systems you’re building upon. Do you know roughly how an OS, file system, and database work? Do you know about the various levels of caching in a modern OS?
@@ -135,29 +123,6 @@ Systems are complex, and when you’re designing a system you’re grappling wit
 **SQS**
 
 **Zookeeper**
-
-
-
-
-
-
-
-
-
-
-
-Detailed organized notes
-
-<https://tianpan.co/hacking-the-software-engineer-interview/?isAdmin=true#how-to-crack-the-coding-interview> 
-
-<https://astikanand.github.io/techblogs/high-level-system-design/> 
-
-
-CodeKarle video for system design :
-
-<https://www.youtube.com/playlist?list=PLhgw50vUymycJPN6ZbGTpVKAJ0cL4OEH3> 
-
-
 
 
 
